@@ -25,7 +25,6 @@ ro:
     show:
       account_label: Cont
       amount: Sumă
-      category_label: Categorie
       date_label: Dată
       delete: Șterge
       delete_subtitle: Aceasta șterge permanent tranzacția, afectează soldurile tale istorice și nu poate fi anulată.
@@ -39,7 +38,6 @@ ro:
       note_placeholder: Introdu o notiță
       overview: Prezentare generală
       settings: Setări
-      tags_label: Etichete
       uncategorized: "(necategorizat)"
     header:
       edit_categories: Editează categorii

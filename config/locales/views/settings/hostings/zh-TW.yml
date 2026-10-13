@@ -20,7 +20,6 @@ zh-TW:
         general: 一般設定
         ai_assistant: AI 助手
         financial_data_providers: 金融資料供應商
-        property_valuation_providers: 房產估價供應商
         sync_settings: 同步設定
         invites: 邀請碼
         title: 自行代管 (Self-Hosting)
@@ -159,20 +158,6 @@ zh-TW:
         status_inactive: Yahoo Finance 連線失敗
         connection_failed: 無法連線至 Yahoo Finance
         troubleshooting: 請檢查您的網路連線與防火牆設定。Yahoo Finance 可能暫時無法使用。
-      rentcast_settings:
-        title: RentCast
-        description: 輸入您的 RentCast API 金鑰，即可在新增房產時查詢美國房產的細節與估價。免費方案每月限 50 次 API 請求，由房產查詢與每日估價更新共用。付費方案可用 RENTCAST_MAX_REQUESTS_PER_MONTH 環境變數提高上限。
-        env_configured_message: 已透過 RENTCAST_API_KEY 環境變數成功設定。
-        label: API 金鑰
-        placeholder: 在此輸入您的 RentCast API 金鑰
-        usage: 本月已使用 %{used} / %{limit} 次請求
-      realie_settings:
-        title: Realie
-        description: 輸入您的 Realie API 金鑰，即可在新增房產時查詢美國房產的細節與估價。免費方案每月限 25 次 API 請求，由房產查詢與每日估價更新共用。付費方案可用 REALIE_MAX_REQUESTS_PER_MONTH 環境變數提高上限。
-        env_configured_message: 已透過 REALIE_API_KEY 環境變數成功設定。
-        label: API 金鑰
-        placeholder: 在此輸入您的 Realie API 金鑰
-        usage: 本月已使用 %{used} / %{limit} 次請求
       tiingo_settings:
         title: Tiingo
         description: 輸入 Tiingo 提供的 API Token。免費方案每小時支援 50 個不重複的代碼，並提供 30 年以上的歷史資料。
@@ -256,6 +241,3 @@ zh-TW:
         auto_sync_description: 啟用後，所有帳戶都會在指定時間每天自動同步。
         auto_sync_time_label: 同步時間 (HH:MM)
         auto_sync_time_description: 指定每天要進行自動同步的時間。
-        include_pending_label: 納入待處理交易
-        include_pending_description: 啟用後，待處理（尚未清算）的交易會被匯入，並在入帳時自動核對。如果您的銀行提供的待處理資料不可靠，請關閉這個選項。
-        env_configured_message: 這項設定已停用，因為系統設定了供應商的環境變數（SIMPLEFIN_INCLUDE_PENDING 或 PLAID_INCLUDE_PENDING）。移除它才能啟用這項設定。

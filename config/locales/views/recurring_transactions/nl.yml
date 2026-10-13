@@ -19,7 +19,6 @@ nl:
       automatic_description: "Automatische identificatie wordt ook uitgevoerd na:"
       triggers:
         - CSV imports zijn voltooid (transacties, trades, accounts, etc.)
-        - Een provider sync is voltooid (Plaid, SimpleFIN, etc.)
     identified: "%{count} terugkerende transactiepatronen geïdentificeerd"
     cleaned_up: "%{count} verouderde terugkerende transacties opgeschoond"
     marked_inactive: Terugkerende transactie gemarkeerd als inactief

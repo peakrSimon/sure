@@ -2,9 +2,6 @@
 nl:
   accounts:
     account:
-      link_lunchflow: Koppel met Lunch Flow
-      link_provider: Koppel met provider
-      unlink_provider: Verbreek verbinding met provider
       troubleshoot: Problemen oplossen
     chart:
       data_not_available: Gegevens niet beschikbaar voor de geselecteerde periode
@@ -12,7 +9,6 @@ nl:
       success: "%{type} account aangemaakt"
     destroy:
       success: "%{type} account gepland voor verwijdering"
-      cannot_delete_linked: "Kan een gekoppeld account niet verwijderen. Koppel het eerst los."
     empty:
       empty_message: Voeg een account toe via verbinding, importeren of handmatig invoeren.
       new_account: Nieuw account
@@ -41,10 +37,6 @@ nl:
       method_selector:
         connected_entry: Account koppelen
         connected_entry_eu: EU-account koppelen
-        link_with_provider: "Koppel met %{provider}"
-        lunchflow_entry: Koppel Lunch Flow account
-        manual_entry: Voer accountsaldo in
-        title: Hoe wilt u het toevoegen?
       title: Wat wilt u toevoegen?
     show:
       activity:
@@ -116,26 +108,6 @@ nl:
       au: Australië
       eu: Europa
       generic: Algemeen
-    confirm_unlink:
-      title: Account ontkoppelen van provider?
-      description_html: "U staat op het punt om <strong>%{account_name}</strong> te ontkoppelen van <strong>%{provider_name}</strong>. Dit zal het omzetten naar een handmatig account."
-      warning_title: Wat dit betekent
-      warning_no_sync: Het account zal niet langer automatisch synchroniseren met uw provider
-      warning_manual_updates: U moet handmatig transacties toevoegen en saldi bijwerken
-      warning_transactions_kept: Alle bestaande transacties en saldi blijven behouden
-      warning_can_delete: Na het ontkoppelen kunt u het account indien nodig verwijderen
-      confirm_button: Bevestigen en ontkoppelen
-    unlink:
-      success: "Account succesvol ontkoppeld. Het is nu een handmatig account."
-      not_linked: "Account is niet gekoppeld aan een provider"
-      error: "Het ontkoppelen is mislukt: %{error}"
-      generic_error: "Er is een onverwachte fout opgetreden. Probeer het opnieuw."
-    select_provider:
-      title: Selecteer een provider om te verbinden
-      description: "Kies welke provider u wilt gebruiken om %{account_name} te koppelen"
-      already_linked: "Account is al gekoppeld aan een provider"
-      no_providers: "Er zijn momenteel geen providers geconfigureerd"
-
   email_confirmations:
     new:
       invalid_token: Ongeldige of verlopen bevestigingslink.

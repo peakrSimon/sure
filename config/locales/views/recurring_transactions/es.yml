@@ -22,7 +22,6 @@ es:
       automatic_description: 'La identificación automática también se ejecuta después de:'
       triggers:
       - Finalización de importaciones CSV (transacciones, operaciones, cuentas, etc.)
-      - Finalización de cualquier sincronización de proveedor (Plaid, SimpleFIN, etc.)
     identified: Identificados %{count} patrones de transacciones recurrentes
     cleaned_up: Limpiadas %{count} transacciones recurrentes obsoletas
     marked_inactive: Transacción recurrente marcada como inactiva

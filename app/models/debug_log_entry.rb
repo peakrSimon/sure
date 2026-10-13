@@ -6,7 +6,6 @@ class DebugLogEntry < ApplicationRecord
   belongs_to :family, optional: true
   belongs_to :account, optional: true
   belongs_to :user, optional: true
-  belongs_to :account_provider, optional: true
 
   validates :category, :level, :message, :source, presence: true
   validates :level, inclusion: { in: LEVELS }
@@ -20,17 +19,16 @@ class DebugLogEntry < ApplicationRecord
   class << self
     def log!(category:, level:, message:, source:, metadata: {}, family: nil, family_id: nil,
              account: nil, account_id: nil, user: nil, user_id: nil,
-             account_provider: nil, account_provider_id: nil, provider_key: nil, provider: nil)
+             provider_key: nil, provider: nil)
       create!(
         category:,
         level:,
         message:,
         source:,
         metadata: normalize_metadata(metadata),
-        family: resolve_family(family, family_id, account, account_id, user, user_id, account_provider, account_provider_id),
-        account: resolve_account(account, account_id, account_provider, account_provider_id),
+        family: resolve_family(family, family_id, account, account_id, user, user_id),
+        account: resolve_account(account, account_id),
         user: resolve_user(user, user_id),
-        account_provider: resolve_account_provider(account_provider, account_provider_id),
         provider_key: normalize_provider_key(provider_key, provider)
       )
     end
@@ -58,25 +56,19 @@ class DebugLogEntry < ApplicationRecord
         provider_name.to_s.underscore
       end
 
-      def resolve_family(family, family_id, account, account_id, user, user_id, account_provider, account_provider_id)
+      def resolve_family(family, family_id, account, account_id, user, user_id)
         family ||
           find_record(Family, family_id) ||
-          resolve_account(account, account_id, account_provider, account_provider_id)&.family ||
+          resolve_account(account, account_id)&.family ||
           resolve_user(user, user_id)&.family
       end
 
-      def resolve_account(account, account_id, account_provider, account_provider_id)
-        account ||
-          find_record(Account, account_id) ||
-          resolve_account_provider(account_provider, account_provider_id)&.account
+      def resolve_account(account, account_id)
+        account || find_record(Account, account_id)
       end
 
       def resolve_user(user, user_id)
         user || find_record(User, user_id)
-      end
-
-      def resolve_account_provider(account_provider, account_provider_id)
-        account_provider || find_record(AccountProvider, account_provider_id)
       end
 
       def find_record(klass, id)

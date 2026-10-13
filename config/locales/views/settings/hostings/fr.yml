@@ -166,20 +166,6 @@ fr:
         tinkoff_invest_hint: requiert un jeton en lecture seule -- cours des actions/fonds/obligations russes + logos des marques
         twelve_data_hint: nécessite une clé API, 800 crédits/jour
         yahoo_finance_hint: gratuit, aucune clé API requise
-      realie_settings:
-        description: Saisissez votre clé d'API Realie pour consulter les caractéristiques et les estimations de valeur des biens immobiliers américains lors de l'ajout d'un bien. L'offre gratuite est limitée à 25 requêtes d'API par mois, partagées entre les recherches de biens et les actualisations quotidiennes de valorisation. Sur une offre payante, relevez le plafond avec la variable d'environnement REALIE_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configuré avec succès via la variable d'environnement REALIE_API_KEY.
-        label: Clé d'API
-        placeholder: Saisissez ici votre clé d'API Realie
-        title: Realie
-        usage: "%{used} sur %{limit} requêtes mensuelles utilisées"
-      rentcast_settings:
-        description: Saisissez votre clé d'API RentCast pour consulter les caractéristiques et les estimations de valeur des biens immobiliers américains lors de l'ajout d'un bien. L'offre gratuite est limitée à 50 requêtes d'API par mois, partagées entre les recherches de biens et les actualisations quotidiennes de valorisation. Sur une offre payante, relevez le plafond avec la variable d'environnement RENTCAST_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configuré avec succès via la variable d'environnement RENTCAST_API_KEY.
-        label: Clé d'API
-        placeholder: Saisissez ici votre clé d'API RentCast
-        title: RentCast
-        usage: "%{used} sur %{limit} requêtes mensuelles utilisées"
       show:
         ai_assistant: Assistant IA
         clear_cache: Effacer le cache de données
@@ -191,7 +177,6 @@ fr:
         financial_data_providers: Fournisseurs de données financières
         general: Paramètres généraux
         invites: Codes d'invitation
-        property_valuation_providers: Fournisseurs de valorisation immobilière
         sync_settings: Paramètres de synchronisation
         title: Auto-hébergement
       sync_auto_sync_scheduler!:
@@ -201,9 +186,6 @@ fr:
         auto_sync_label: Activer la synchronisation automatique
         auto_sync_time_description: Spécifiez l'heure à laquelle la synchronisation automatique doit se produire.
         auto_sync_time_label: Heure de synchronisation (HH:MM)
-        env_configured_message: Ce paramètre est désactivé car une variable d'environnement du fournisseur (SIMPLEFIN_INCLUDE_PENDING ou PLAID_INCLUDE_PENDING) est définie. Supprimez-la pour activer ce paramètre.
-        include_pending_description: Lorsque cette option est activée, les transactions en attente (non confirmées) seront importées et automatiquement réconciliées lors de leur validation. Désactivez si votre banque fournit des données de transactions en attente peu fiables.
-        include_pending_label: Inclure les transactions en attente
       tiingo_settings:
         description: Saisissez le token API fourni par Tiingo. Le forfait gratuit supporte 50 symboles uniques par heure avec plus de 30 ans de données historiques.
         env_configured_message: Configuré avec succès via la variable d'environnement TIINGO_API_KEY.

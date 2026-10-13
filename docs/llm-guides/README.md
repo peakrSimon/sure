@@ -11,7 +11,7 @@ being changed. These guides hold the detailed conventions and procedures.
 | Change design tokens or `DS::*` primitives | [Design system](design-system.md) |
 | Change views, components, CSS, Stimulus or localization | [UI](ui.md) |
 | Add or modify an API v1 endpoint | [API endpoint consistency](api-endpoint-consistency.md) |
-| Change provider imports, pending/FX metadata or diagnostics | [Provider sync guidance](providers.md) |
+| Change external providers (market data, LLMs) or diagnostics | [Provider guidance](providers.md) |
 | Add a securities price provider | [Provider walkthrough](adding-a-securities-provider.md) |
 | Add a typed classification provider (Jev/TypeSafe) | [Classification provider walkthrough](adding-a-classification-provider.md) |
 | Add a preview survey or usage event | [Feedback surveys](feedback-surveys.md) |

@@ -229,6 +229,3 @@ it:
         auto_sync_description: Quando abilitata, tutti i conti verranno sincronizzati automaticamente ogni giorno all'orario specificato.
         auto_sync_time_label: Orario sincronizzazione (HH:MM)
         auto_sync_time_description: Specifica l'ora del giorno in cui deve avvenire la sincronizzazione automatica.
-        include_pending_label: Includi transazioni in sospeso
-        include_pending_description: Quando abilitato, le transazioni in sospeso (non confermate) verranno importate e riconciliate automaticamente quando vengono registrate. Disabilita se la tua banca fornisce dati in sospeso inaffidabili.
-        env_configured_message: Questa impostazione è disabilitata perché è impostata una variabile d'ambiente del provider (SIMPLEFIN_INCLUDE_PENDING o PLAID_INCLUDE_PENDING). Rimuovila per abilitare questa impostazione.

@@ -19,7 +19,6 @@ zh-CN:
         save: 保存
         tags_label: 标签
         transactions_section: 交易
-    unknown_name: 未知交易
     selection_bar:
       duplicate: 重复
       edit: 编辑
@@ -64,7 +63,6 @@ zh-CN:
       transfer: 转账
       account_label: 账户
       amount: 金额
-      category_label: 分类
       date_label: 日期
       delete: 删除
       delete_subtitle: 这将永久删除该交易，影响您的历史余额，并且无法撤销。
@@ -79,7 +77,6 @@ zh-CN:
       one_time_description: 一次性交易将从某些预算计算和报表中排除，以帮助您看清真正重要的内容。
       convert_to_trade_title: 转换为证券交易
       convert_to_trade_description: 将此交易转换为带证券详情的买入或卖出交易，以用于投资组合跟踪。
-      convert_to_trade_button: 转换为交易
       transfer_matcher_description: 将此交易与其他账户中的对应交易关联。
       pending_duplicate_merger_title: 已入账交易的重复项？
       pending_duplicate_merger_description: 手动将此待处理交易与其已入账版本合并。
@@ -92,15 +89,10 @@ zh-CN:
       note_placeholder: 输入备注
       overview: 概览
       settings: 设置
-      tags_label: 标签
       tab_transactions: 交易
       tab_upcoming: 待发生
       uncategorized: （未分类）
       additional_details: 其他详情
-      payee: 收款方
-      description: 描述
-      memo: 备忘录
-      provider_extras: 提供商附加信息
       transfer_or_debt_payment: 转账还是债务还款？
       open_matcher: 打开匹配器
       convert: 转换

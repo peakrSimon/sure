@@ -24,9 +24,5 @@ nl:
     new:
       title: Vastgoedgegevens invoeren
     overview:
-      living_area: Woonoppervlakte
-      market_value: Marktwaarde
       purchase_price: Aankoopprijs
       trend: Trend
-      unknown: Onbekend
-      year_built: Bouwjaar

@@ -24,9 +24,5 @@ pt-BR:
     new:
       title: Inserir detalhes da propriedade
     overview:
-      living_area: Área Útil
-      market_value: Valor de Mercado
       purchase_price: Preço de Compra
       trend: Tendência
-      unknown: Desconhecido
-      year_built: Ano de Construção

@@ -20,7 +20,6 @@ es:
         general: Configuración General
         ai_assistant: Asistente de IA
         financial_data_providers: Proveedores de Datos Financieros
-        property_valuation_providers: Proveedores de valoración de propiedades
         sync_settings: Ajustes de Sincronización
         invites: Códigos de Invitación
         title: Autoalojamiento
@@ -161,20 +160,6 @@ es:
         unavailable_title: No se pudo verificar Yahoo Finance.
         unavailable_message: No se pudo contactar con Yahoo Finance o se recibió una respuesta inesperada. Comprueba tu conexión a internet e inténtalo de nuevo más tarde.
         status_unknown: Se está comprobando el estado de Yahoo Finance.
-      rentcast_settings:
-        title: RentCast
-        description: Introduce tu clave API de RentCast para consultar detalles de propiedades de EE. UU. y estimaciones de valor al añadir una propiedad. El nivel gratuito está limitado a 50 solicitudes API al mes, compartidas entre búsquedas de propiedades y actualizaciones diarias de valoración. En un plan de pago, aumenta el límite con la variable de entorno RENTCAST_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configurado correctamente mediante la variable de entorno RENTCAST_API_KEY.
-        label: Clave API
-        placeholder: Introduce aquí tu clave API de RentCast
-        usage: "%{used} de %{limit} solicitudes mensuales utilizadas"
-      realie_settings:
-        title: Realie
-        description: Introduce tu clave API de Realie para consultar detalles de propiedades de EE. UU. y estimaciones de valor al añadir una propiedad. El nivel gratuito está limitado a 25 solicitudes API al mes, compartidas entre búsquedas de propiedades y actualizaciones diarias de valoración. En un plan de pago, aumenta el límite con la variable de entorno REALIE_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configurado correctamente mediante la variable de entorno REALIE_API_KEY.
-        label: Clave API
-        placeholder: Introduce aquí tu clave API de Realie
-        usage: "%{used} de %{limit} solicitudes mensuales utilizadas"
       tiingo_settings:
         title: Tiingo
         description: Introduce el token de API proporcionado por Tiingo. El plan gratuito admite 50 símbolos únicos por hora con más de 30 años de datos históricos.
@@ -258,6 +243,3 @@ es:
         auto_sync_description: Cuando está habilitado, todas las cuentas se sincronizarán automáticamente cada día a la hora especificada.
         auto_sync_time_label: Hora de sincronización (HH:MM)
         auto_sync_time_description: Especifica la hora del día en la que debe ocurrir la sincronización automática.
-        include_pending_label: Incluir transacciones pendientes
-        include_pending_description: Cuando está habilitado, las transacciones pendientes (no liquidadas) se importarán y se conciliarán automáticamente cuando se confirmen. Desactívalo si tu banco proporciona datos pendientes poco fiables.
-        env_configured_message: Este ajuste está desactivado porque hay una variable de entorno del proveedor (SIMPLEFIN_INCLUDE_PENDING o PLAID_INCLUDE_PENDING) definida. Elimínala para habilitar este ajuste aquí.

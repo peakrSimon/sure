@@ -24,9 +24,5 @@ nb:
     new:
       title: Angi eiendomsdetaljer
     overview:
-      living_area: Boareal
-      market_value: Markedsverdi
       purchase_price: Kjøpspris
       trend: Trend
-      unknown: Ukjent
-      year_built: Byggeår

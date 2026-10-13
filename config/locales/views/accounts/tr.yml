@@ -6,7 +6,6 @@ tr:
         success: Kayıt başarıyla silindi.
   accounts:
     account:
-      change_simplefin_account: SimpleFIN hesabını değiştir
       complete_setup: Kurulumu tamamla
       default_label: Varsayılan
       delete: Hesabı sil
@@ -16,30 +15,15 @@ tr:
       exclude_from_reports: Tüm raporlardan hariç tut
       excluded_from_reports_indicator: Raporlardan hariç tutuldu
       include_in_reports: Raporlara dahil et
-      link_lunchflow: Lunch Flow ile bağla
-      link_provider: Sağlayıcı ile bağla
       remove_default: Varsayılanı kaldır
       set_default: Varsayılan olarak ayarla
       sharing: Paylaşım
       troubleshoot: Sorun Gider
-      unlink_provider: Sağlayıcı ile bağlantıyı kes
     chart:
       data_not_available: Seçilen dönem için veri mevcut değil
-    confirm_unlink:
-      confirm_button: Onayla ve bağlantıyı kes
-      description_html: "<strong>%{account_name}</strong> hesabının <strong>%{provider_name}</strong>
-        ile bağlantısını kesmek üzeresiniz. Bu işlem hesabı manuel bir hesaba dönüştürecektir."
-      title: Hesabın sağlayıcı ile bağlantısı kesilsin mi?
-      warning_can_delete: Bağlantı kesildikten sonra, gerekirse hesabı silebilirsiniz
-      warning_manual_updates: İşlemleri ve bakiyeleri manuel olarak eklemeniz ve güncellemeniz
-        gerekecek
-      warning_no_sync: Hesap artık sağlayıcınızla otomatik olarak senkronize edilmeyecek
-      warning_title: Bunun anlamı
-      warning_transactions_kept: Mevcut tüm işlemler ve bakiyeler korunacaktır
     create:
       success: "%{type} hesabı oluşturuldu"
     destroy:
-      cannot_delete_linked: Bağlı bir hesap silinemez. Lütfen önce bağlantısını kesin.
       failed: Kaynak silinemedi. Daha sonra tekrar deneyin.
       success: "%{type} hesabı silinmek üzere planlandı"
     empty:
@@ -49,10 +33,6 @@ tr:
     form:
       additional_details: Ek detaylar
       balance: Güncel bakiye
-      enable_category_matcher_hint: Etkinleştirildiğinde, sağlayıcının önerdiği kategori
-        içe aktarılan işlemlere uygulanır. Yeni işlemleri kategorisiz bırakmak için
-        devre dışı bırakın.
-      enable_category_matcher_label: Kategori eşleştiriciyi etkinleştir
       exclude_from_reports: Tüm raporlardan hariç tut
       institution_domain_label: Kurum alan adı
       institution_domain_placeholder: örn. chase.com
@@ -82,18 +62,8 @@ tr:
       method_selector:
         connected_entry: Hesabı bağla
         connected_entry_eu: AB hesabı bağla
-        link_with_provider: "%{provider} ile bağla"
-        lunchflow_entry: Lunch Flow hesabı bağla
-        manual_entry: Hesap bakiyesi gir
-        title: Nasıl eklemek istersiniz?
       title: Ne eklemek istersiniz?
     not_authorized: Bu hesabı yönetme izniniz yok
-    select_provider:
-      already_linked: Hesap zaten bir sağlayıcıya bağlı
-      description: "%{account_name} hesabını bağlamak için kullanmak istediğiniz sağlayıcıyı
-        seçin"
-      no_providers: Şu anda yapılandırılmış sağlayıcı yok
-      title: Bağlamak için bir sağlayıcı seçin
     set_default:
       depository_only: Yalnızca nakit ve kredi kartı hesapları varsayılan olarak ayarlanabilir.
     show:
@@ -207,11 +177,6 @@ tr:
       other_liability: Diğer Borçlar
       property: Mülkler
       vehicle: Araçlar
-    unlink:
-      error: 'Hesap bağlantısı kesilemedi: %{error}'
-      generic_error: Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.
-      not_linked: Hesap bir sağlayıcıya bağlı değil
-      success: Hesap bağlantısı başarıyla kesildi. Artık manuel bir hesap.
     update:
       success: "%{type} hesabı güncellendi"
   email_confirmations:

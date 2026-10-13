@@ -84,6 +84,3 @@ nl:
         auto_sync_description: Wanneer ingeschakeld, worden alle accounts automatisch dagelijks gesynchroniseerd op het opgegeven tijdstip.
         auto_sync_time_label: Synchronisatietijd (UU:MM)
         auto_sync_time_description: Geef het tijdstip van de dag op waarop automatische synchronisatie moet plaatsvinden.
-        include_pending_label: Transacties in afwachting opnemen
-        include_pending_description: Wanneer ingeschakeld, worden transacties in afwachting (niet-vereffende) geïmporteerd en automatisch afgestemd wanneer ze worden geboekt. Schakel uit als uw bank onbetrouwbare transacties in afwachting levert.
-        env_configured_message: Deze instelling is uitgeschakeld omdat een provider omgevingsvariabele (SIMPLEFIN_INCLUDE_PENDING of PLAID_INCLUDE_PENDING) is ingesteld. Verwijder deze om deze instelling in te schakelen.

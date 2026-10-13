@@ -157,7 +157,6 @@ en:
       automatic_description: "Automatic identification also runs after:"
       triggers:
         - CSV imports complete (transactions, trades, accounts, etc. )
-        - Any provider sync completes ( Plaid, SimpleFIN, etc. )
     identified: Identified %{count} recurring transaction patterns
     identify_already_running: Detection is already running. Check back in a moment.
     cleaned_up: Cleaned up %{count} stale recurring transactions

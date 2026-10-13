@@ -3,7 +3,7 @@ class Provider::Registry
 
   Error = Class.new(StandardError)
 
-  CONCEPTS = %i[exchange_rates securities llm property_valuations classification]
+  CONCEPTS = %i[exchange_rates securities llm classification]
 
   validates :concept, inclusion: { in: CONCEPTS }
 
@@ -32,10 +32,6 @@ class Provider::Registry
       nil
     end
 
-    def plaid_provider_for_region(region)
-      region.to_sym == :us ? plaid_us : plaid_eu
-    end
-
     private
       def stripe
         secret_key = ENV["STRIPE_SECRET_KEY"]
@@ -52,24 +48,6 @@ class Provider::Registry
         return nil unless api_key.present?
 
         Provider::TwelveData.new(api_key)
-      end
-
-      def plaid_us
-        Provider::PlaidAdapter.ensure_configuration_loaded
-        config = Rails.application.config.plaid
-
-        return nil unless config.present?
-
-        Provider::Plaid.new(config, region: :us)
-      end
-
-      def plaid_eu
-        Provider::PlaidEuAdapter.ensure_configuration_loaded
-        config = Rails.application.config.plaid_eu
-
-        return nil unless config.present?
-
-        Provider::Plaid.new(config, region: :eu)
       end
 
       def github
@@ -176,22 +154,6 @@ class Provider::Registry
 
         Provider::TinkoffInvest.new(api_key)
       end
-
-      def rentcast
-        api_key = ENV["RENTCAST_API_KEY"].presence || Setting.rentcast_api_key # pipelock:ignore
-
-        return nil unless api_key.present?
-
-        Provider::Rentcast.new(api_key)
-      end
-
-      def realie
-        api_key = ENV["REALIE_API_KEY"].presence || Setting.realie_api_key # pipelock:ignore
-
-        return nil unless api_key.present?
-
-        Provider::Realie.new(api_key)
-      end
   end
 
   def initialize(concept)
@@ -233,10 +195,8 @@ class Provider::Registry
         # answer typed questions, so they stay under :llm — the eval runner
         # builds them by name when benchmarking against Jev.
         %i[jev]
-      when :property_valuations
-        %i[rentcast realie]
       else
-        %i[plaid_us plaid_eu github openai anthropic]
+        %i[github openai anthropic]
       end
     end
 end

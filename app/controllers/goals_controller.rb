@@ -193,7 +193,7 @@ class GoalsController < ApplicationController
   private
     def set_goal
       @goal = Current.family.goals
-                             .includes(:open_pledges, linked_accounts: :account_providers)
+                             .includes(:open_pledges, :linked_accounts)
                              .find(params[:id])
     end
 

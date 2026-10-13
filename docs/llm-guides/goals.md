@@ -180,9 +180,8 @@ would otherwise touch `updated_at` on every matched pledge and reset the
 
 ## Connected vs manual accounts
 
-`Account#manual?` returns true when the account has no
-`account_providers` association rows, no `plaid_account_id`, and no
-`simplefin_account_id`. This mirrors the `Account.manual` query scope.
+Every account is manual: `Account#manual?` is always true and the
+`Account.manual` scope returns every account.
 
 `Goal#any_connected_account?` returns true when *any* linked account is
 not manual. It drives the modal-title copy: connected accounts get

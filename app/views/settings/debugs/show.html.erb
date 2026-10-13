@@ -39,10 +39,6 @@
         <%= f.label :user_id, t(".filters.user_id"), class: "block text-sm font-medium text-primary mb-1" %>
         <%= f.text_field :user_id, value: params[:user_id], class: "rounded-lg border border-primary px-3 py-2 text-sm bg-container-inset text-primary w-full font-mono" %>
       </div>
-      <div>
-        <%= f.label :account_provider_id, t(".filters.account_provider_id"), class: "block text-sm font-medium text-primary mb-1" %>
-        <%= f.text_field :account_provider_id, value: params[:account_provider_id], class: "rounded-lg border border-primary px-3 py-2 text-sm bg-container-inset text-primary w-full font-mono" %>
-      </div>
       <div class="flex gap-2 xl:col-span-2">
         <%= render DS::Button.new(variant: :primary, size: :md, type: "submit", text: t(".filters.submit"), class: "justify-center") %>
         <%= render DS::Link.new(text: t(".filters.reset"), href: settings_debug_path, variant: "ghost") %>

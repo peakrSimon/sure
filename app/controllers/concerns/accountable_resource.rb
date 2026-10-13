@@ -6,7 +6,6 @@ module AccountableResource
 
     before_action :set_account, only: [ :show ]
     before_action :set_manageable_account, only: [ :edit, :update ]
-    before_action :set_link_options, only: :new
   end
 
   class_methods do
@@ -73,9 +72,6 @@ module AccountableResource
       e.record.try(:account) || rebuilt_account_from_submission
     end
     @error_message = e.record.errors.full_messages.join(", ").presence || e.message
-    # The `new` template's method-selection branch reads `@provider_configs`,
-    # which the `new` action's before_action sets up; this render needs it too.
-    set_link_options
     render :new, status: :unprocessable_entity
   end
 
@@ -144,16 +140,6 @@ module AccountableResource
       Current.family.accounts.build(attributes)
     end
 
-    def set_link_options
-      account_type_name = accountable_type.name
-
-      # Get all available provider configs dynamically for this account type
-      @provider_configs = Provider::Factory.connection_configs_for_account_type(
-        account_type: account_type_name,
-        family: Current.family
-      )
-    end
-
     def accountable_type
       controller_name.classify.constantize
     end
@@ -172,7 +158,6 @@ module AccountableResource
         :name, :balance, :subtype, :currency, :accountable_type, :return_to,
         :opening_balance_date,
         :institution_name, :institution_domain, :notes, :exclude_from_reports,
-        :enable_category_matcher,
         accountable_attributes: self.class.permitted_accountable_attributes
       )
     end

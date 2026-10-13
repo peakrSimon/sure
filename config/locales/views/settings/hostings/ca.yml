@@ -211,7 +211,6 @@ ca:
         invites: Codis d'invitació
         sync_settings: Configuració de sincronització
         title: Self hosting
-        property_valuation_providers: Proveïdors de valoració d'immobles
       sync_auto_sync_scheduler!:
         scheduler_sync_failed: La configuració s'ha desat, però no s'ha pogut actualitzar
           la planificació de sincronització. Torna-ho a provar o revisa els registres
@@ -223,13 +222,6 @@ ca:
         auto_sync_time_description: Especifica l'hora del dia en què s'ha de produir
           la sincronització automàtica.
         auto_sync_time_label: Hora de sincronització (HH:MM)
-        env_configured_message: Aquesta configuració està desactivada perquè una variable
-          d'entorn del proveïdor (SIMPLEFIN_INCLUDE_PENDING o PLAID_INCLUDE_PENDING)
-          està establerta. Elimina-la per activar aquesta opció.
-        include_pending_description: Quan està activat, les transaccions pendents
-          (no liquidades) s'importaran i es conciliaran automàticament quan es comptabilitzin.
-          Desactiva-ho si el teu banc proporciona dades pendents poc fiables.
-        include_pending_label: Inclou transaccions pendents
       tiingo_settings:
         description: Introdueix el token d'API proporcionat per Tiingo. El nivell
           gratuït admet 50 símbols únics per hora amb més de 30 anys d'historial.
@@ -316,20 +308,6 @@ ca:
         model_label: Model per defecte (opcional)
         model_placeholder: claude-sonnet-4-6 (per defecte)
         model_help: S'utilitza per al xat i el processament de PDF. Les operacions per lots (categorització, detecció de comerços) utilitzen Haiku per defecte per reduir costos.
-      rentcast_settings:
-        title: RentCast
-        description: Introdueix la teva clau API de RentCast per consultar dades i estimacions de valor d'immobles dels EUA en afegir un immoble. El nivell gratuït està limitat a 50 sol·licituds d'API al mes, compartides entre les consultes d'immobles i les actualitzacions diàries de la valoració. Amb un pla de pagament, augmenta el límit amb la variable d'entorn RENTCAST_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configurat correctament mitjançant la variable d'entorn RENTCAST_API_KEY.
-        label: Clau API
-        placeholder: Introdueix aquí la teva clau API de RentCast
-        usage: '%{used} de %{limit} sol·licituds mensuals utilitzades'
-      realie_settings:
-        title: Realie
-        description: Introdueix la teva clau API de Realie per consultar dades i estimacions de valor d'immobles dels EUA en afegir un immoble. El nivell gratuït està limitat a 25 sol·licituds d'API al mes, compartides entre les consultes d'immobles i les actualitzacions diàries de la valoració. Amb un pla de pagament, augmenta el límit amb la variable d'entorn REALIE_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Configurat correctament mitjançant la variable d'entorn REALIE_API_KEY.
-        label: Clau API
-        placeholder: Introdueix aquí la teva clau API de Realie
-        usage: '%{used} de %{limit} sol·licituds mensuals utilitzades'
       tinkoff_invest_settings:
         title: T-Invest (T-Bank)
         description: Introdueix un token d'API de T-Invest de només lectura. S'utilitza per obtenir logotips de marques per als valors (inclosos fons i bons, fins i tot quan MOEX en proporciona els preus) i, si està activat a dalt, preus d'instruments russos.

@@ -6,29 +6,6 @@ class Demo::GeneratorTest < ActiveSupport::TestCase
     @admin_user = create_user!(@family, "demo-admin@example.com")
   end
 
-  test "production sample reset includes Wallet in the normal accounts and transactions phases" do
-    Rails.stubs(:env).returns(ActiveSupport::EnvironmentInquirer.new("production"))
-    generator = Demo::Generator.new(seed: 42)
-    stub_non_wallet_activity(generator)
-    @family.expects(:sync_later)
-
-    generator.generate_new_user_data_for!(@family, email: @admin_user.email)
-
-    assert_wallet_demo_activity
-  end
-
-  test "production default demo includes Wallet in the normal accounts and transactions phases" do
-    Rails.stubs(:env).returns(ActiveSupport::EnvironmentInquirer.new("production"))
-    generator = Demo::Generator.new(seed: 42)
-    generator.stubs(:create_family_and_users!).returns(@family)
-    generator.stubs(:create_monitoring_api_key!)
-    stub_non_wallet_activity(generator)
-
-    generator.generate_default_data!(skip_clear: true)
-
-    assert_wallet_demo_activity
-  end
-
   test "sample data generates loan payments before its transaction commits" do
     generator = Demo::Generator.new(seed: 42)
     stub_non_loan_activity(generator)
@@ -211,8 +188,6 @@ class Demo::GeneratorTest < ActiveSupport::TestCase
          generate_budget_auto_fill! generate_goals! sync_family_accounts!].each do |step|
         generator.stubs(step)
       end
-      Demo::FinancekitGenerator.any_instance.stubs(:create_accounts!)
-      Demo::FinancekitGenerator.any_instance.stubs(:create_transactions!)
     end
 
     def assert_demo_loan_payments
@@ -243,20 +218,6 @@ class Demo::GeneratorTest < ActiveSupport::TestCase
          generate_budget_auto_fill! generate_goals! sync_family_accounts!].each do |step|
         generator.stubs(step)
       end
-    end
-
-    def assert_wallet_demo_activity
-      item = @family.financekit_items.find_by!(enrollment_id: Demo::FinancekitGenerator::ENROLLMENT_ID)
-      assert_equal [ "Apple Card", "Apple Cash", "Nancy's Apple Cash" ], item.accounts.order(:name).pluck(:name)
-      assert item.accounts.all?(&:linked?)
-      assert item.accounts.all? { |account| account.entries.exists? }
-      assert item.last_imported_at
-      card = item.accounts.find_by!(name: "Apple Card")
-      checking = @family.accounts.find_by!(name: "Chase Premier Checking")
-      assert_equal checking, card.entries.find_by!(name: "Apple Card Payment").entryable.transfer.from_account
-      assert item.accounts.find_by!(name: "Apple Cash").entries.exists?(name: "Apple Card Daily Cash")
-      assert item.accounts.find_by!(name: "Nancy's Apple Cash").entries.exists?(name: "Movie Theater")
-      assert_not @family.accounts.exists?(name: "Wallet Demo Checking")
     end
 
     def create_user!(family, email)

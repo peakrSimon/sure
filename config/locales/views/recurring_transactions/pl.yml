@@ -135,7 +135,6 @@ pl:
       title: Automatyczne wykrywanie wzorców
       triggers:
       - zakończeniu importu CSV (transakcje, transakcje giełdowe, konta itd.)
-      - zakończeniu synchronizacji dowolnego dostawcy (Plaid, SimpleFIN itd.)
     manage:
       cta: Otwórz wszystkie rachunki
       description: Stamtąd zgłaszaj, edytuj, wstrzymuj i płać wszystko. Ta strona

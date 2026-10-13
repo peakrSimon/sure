@@ -41,42 +41,6 @@ class InvestmentFlowStatementTest < ActiveSupport::TestCase
     assert_includes aggregate_queries.first, '"entries"."account_id" IN (SELECT DISTINCT "accounts"."id"'
   end
 
-  test "a matched provider contribution still counts once after resync" do
-    family = families(:dylan_family)
-    brokerage = Account::ProviderImportAdapter.new(accounts(:investment))
-    checking = Account::ProviderImportAdapter.new(accounts(:depository))
-    period = Period.custom(start_date: Date.current, end_date: Date.current)
-    expenses_before = IncomeStatement.new(family).expense_totals(period: period).total
-
-    inflow = brokerage.import_transaction(
-      external_id: "plaid_brokerage_contribution", amount: -500, currency: "USD",
-      date: Date.current, name: "Contribution", source: "plaid",
-      investment_activity_label: "Contribution"
-    )
-    outflow = checking.import_transaction(
-      external_id: "plaid_checking_to_brokerage", amount: 500, currency: "USD",
-      date: Date.current, name: "Transfer to brokerage", source: "plaid"
-    )
-    family.auto_match_transfers!
-    assert inflow.transaction.reload.transfer.present?, "expected the two legs to be auto-matched"
-    inflow.transaction.transfer.confirm!
-
-    # The next sync replays the brokerage row; the matched inflow keeps funds_movement.
-    brokerage.import_transaction(
-      external_id: "plaid_brokerage_contribution", amount: -500, currency: "USD",
-      date: Date.current, name: "Contribution", source: "plaid",
-      investment_activity_label: "Contribution"
-    )
-    assert_equal "funds_movement", inflow.transaction.reload.kind
-    assert_equal "investment_contribution", outflow.transaction.reload.kind
-
-    totals = InvestmentFlowStatement.new(family).period_totals(period: period)
-    assert_equal Money.new(500, "USD"), totals.contributions
-
-    expenses_after = IncomeStatement.new(family).expense_totals(period: period).total
-    assert_equal 500, expenses_after - expenses_before, "the contribution is budgeted once, on the cash leg"
-  end
-
   test "a matched provider withdrawal still counts once" do
     family = families(:dylan_family)
     period = Period.custom(start_date: Date.current, end_date: Date.current)

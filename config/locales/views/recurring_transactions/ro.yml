@@ -15,7 +15,6 @@ ro:
       automatic_description: "Identificarea automată rulează și după:"
       triggers:
         - Importurile CSV sunt complete (tranzacții, tranzacții bursiere, conturi etc.)
-        - Orice sincronizare a furnizorului este completă (Plaid, SimpleFIN etc.)
     identified: Au fost identificate %{count} tipare de tranzacții recurente
     cleaned_up: Au fost curățate %{count} tranzacții recurente învechite
     marked_inactive: Tranzacție recurentă marcată ca inactivă

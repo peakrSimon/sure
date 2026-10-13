@@ -46,23 +46,9 @@ ru:
     new:
       next: Далее
       title: Ввести данные вручную
-      avm_option: Добавить через %{provider}
-      avm_title: Добавить недвижимость через %{provider}
-      avm_description: Введите название объекта и его адрес. %{provider} найдёт сведения об объекте и его оценочную рыночную стоимость.
-      avm_us_only: '%{provider} поддерживает только объекты недвижимости в США.'
-      avm_submit: Найти объект
-      avm_preview_title: Проверьте данные объекта
-      avm_preview_description: Вот что нашёл %{provider}. Проверьте данные перед добавлением объекта — пока ничего не создано.
-      avm_preview_no_record: '%{provider} не нашёл записи об объекте по этому адресу, поэтому показанная стоимость — оценка по окружающему району. Перепроверьте адрес, прежде чем продолжить.'
-      avm_preview_back: Назад
-      avm_preview_confirm: Добавить недвижимость
     overview:
-      living_area: Жилая площадь
-      market_value: Рыночная стоимость
       purchase_price: Цена покупки
       trend: Тренд
-      unknown: Неизвестно
-      year_built: Год постройки
     overview_fields:
       area_label: Площадь (необязательно)
       area_placeholder: '1200'
@@ -100,9 +86,6 @@ ru:
         trend: Тренд
         unknown: Неизвестно
         year_built: Год постройки
-    avm_providers:
-      rentcast: RentCast
-      realie: Realie
     form_tabs:
       address: Адрес
       overview: Обзор

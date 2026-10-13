@@ -30,7 +30,6 @@ ca:
       title: Detecció automàtica de patrons
       triggers:
       - Importacions CSV completades (transaccions, operacions, comptes, etc.)
-      - Sincronitzacions de proveïdors completades (Plaid, SimpleFIN, etc.)
     marked_active: S'ha reprès.
     marked_as_recurring: Transacció marcada com a recurrent
     marked_inactive: S'ha posat en pausa. No tornarà a aparèixer fins que no es reprengui.

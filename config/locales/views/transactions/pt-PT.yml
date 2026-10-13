@@ -19,7 +19,6 @@ pt-PT:
         save: Guardar
         tags_label: Tags
         transactions_section: Transações
-    unknown_name: Transação desconhecida
     selection_bar:
       duplicate: Duplicar
       edit: Editar
@@ -73,7 +72,6 @@ pt-PT:
       transfer: Transferência
       account_label: Conta
       amount: Montante
-      category_label: Categoria
       date_label: Data
       delete: Eliminar
       delete_subtitle: Isto elimina permanentemente a transação, afeta os seus saldos
@@ -89,7 +87,6 @@ pt-PT:
       one_time_description: As transações pontuais serão excluídas de certos cálculos de orçamentação e relatórios para o ajudar a ver o que é realmente importante.
       convert_to_trade_title: Converter em Negociação de Título
       convert_to_trade_description: Converta esta transação numa negociação de Compra ou Venda com detalhes do título para acompanhamento da carteira.
-      convert_to_trade_button: Converter em Negociação
       transfer_matcher_description: Ligue esta transação à sua correspondente noutra conta.
       pending_duplicate_merger_title: Duplicado da Transação Efetuada?
       pending_duplicate_merger_description: Funda manualmente esta transação pendente com a sua versão efetuada.
@@ -102,15 +99,10 @@ pt-PT:
       note_placeholder: Introduza uma nota
       overview: Visão geral
       settings: Definições
-      tags_label: Tags
       tab_transactions: Transações
       tab_upcoming: Próximo
       uncategorized: "(sem categoria)"
       additional_details: "Detalhes adicionais"
-      payee: "Beneficiário"
-      description: "Descrição"
-      memo: "Memorando"
-      provider_extras: "Extras do serviço"
       transfer_or_debt_payment: "Transferência ou Pagamento de Dívida?"
       open_matcher: "Abrir correspondente"
       convert: "Converter"

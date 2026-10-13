@@ -96,10 +96,6 @@ class Setting < RailsSettings::Base
   # which none of the providers above cover. See Provider::Mansa.
   field :mansa_api_key, type: :string, default: ENV["MANSA_API_KEY"]
 
-  # Property valuation (AVM) provider API keys
-  field :rentcast_api_key, type: :string, default: ENV["RENTCAST_API_KEY"]
-  field :realie_api_key, type: :string, default: ENV["REALIE_API_KEY"]
-
   # Transparent encryption for API key fields.  The `field` macro defines the
   # raw getter/setter on the class.  By prepending this module we intercept
   # reads (decrypt) and writes (encrypt) while `super` delegates to the
@@ -115,8 +111,6 @@ class Setting < RailsSettings::Base
       alpha_vantage_api_key
       tinkoff_invest_api_key
       mansa_api_key
-      rentcast_api_key
-      realie_api_key
       openai_access_token
       anthropic_access_token
       jev_api_key
@@ -175,14 +169,7 @@ class Setting < RailsSettings::Base
     end
   end
 
-  # Sync settings - check both provider env vars for default
-  # Only defaults to true if neither provider explicitly disables pending
-  SYNCS_INCLUDE_PENDING_DEFAULT = begin
-    simplefin = ENV.fetch("SIMPLEFIN_INCLUDE_PENDING", "1") == "1"
-    plaid = ENV.fetch("PLAID_INCLUDE_PENDING", "1") == "1"
-    simplefin && plaid
-  end
-  field :syncs_include_pending, type: :boolean, default: SYNCS_INCLUDE_PENDING_DEFAULT
+  # Sync settings
   field :auto_sync_enabled, type: :boolean, default: ENV.fetch("AUTO_SYNC_ENABLED", "1") == "1"
   field :auto_sync_time, type: :string, default: ENV.fetch("AUTO_SYNC_TIME", "02:22")
   field :auto_sync_timezone, type: :string, default: ENV.fetch("AUTO_SYNC_TIMEZONE", "UTC")

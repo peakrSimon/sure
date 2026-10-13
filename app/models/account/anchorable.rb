@@ -55,15 +55,11 @@ module Account::Anchorable
   end
 
   def history_start_date
-    if linked? && balance_type == :investment
-      Balance::LinkedInvestmentSeriesNormalizer.supported_history_start_date(self)
-    else
-      [
-        (opening_anchor_date if has_opening_anchor?),
-        entries.excluding_pending.minimum(:date),
-        balances.minimum(:date)
-      ].compact.min
-    end
+    [
+      (opening_anchor_date if has_opening_anchor?),
+      entries.excluding_pending.minimum(:date),
+      balances.minimum(:date)
+    ].compact.min
   end
 
   # `date` is the day the balance describes, for a provider whose figures are

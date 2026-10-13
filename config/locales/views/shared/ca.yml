@@ -45,7 +45,6 @@ ca:
     trend_change:
       no_change: sense canvis
     preview: Experimental
-    require_connector_owner: Només pots gestionar les connexions que has afegit tu
     sidekiq_health_banner:
       title: Algunes dades poden estar desactualitzades
       body: Les tasques en segon pla no s'estan processant, així que els saldos, el patrimoni net i les sincronitzacions de comptes poden estar desactualitzats o incomplets.

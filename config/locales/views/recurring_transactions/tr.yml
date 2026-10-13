@@ -30,7 +30,6 @@ tr:
       triggers:
         - CSV içe aktarmaları tamamlandığında (işlemler, alım satımlar, hesaplar
           vb.)
-        - Herhangi bir sağlayıcı senkronizasyonu tamamlandığında (Plaid, SimpleFIN
           vb.)
     marked_active: Sürdürüldü.
     marked_as_recurring: İşlem yinelenen olarak işaretlendi

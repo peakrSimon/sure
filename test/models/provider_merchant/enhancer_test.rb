@@ -13,7 +13,7 @@ class ProviderMerchant::EnhancerTest < ActiveSupport::TestCase
   end
 
   test "enhances provider merchants with website and logo" do
-    merchant = ProviderMerchant.create!(source: "lunchflow", name: "Walmart", provider_merchant_id: "lf_walmart")
+    merchant = ProviderMerchant.create!(source: "synth", name: "Walmart", provider_merchant_id: "lf_walmart")
     create_transaction(account: @account, name: "Walmart purchase", merchant: merchant)
 
     provider_response = provider_success_response([
@@ -30,7 +30,7 @@ class ProviderMerchant::EnhancerTest < ActiveSupport::TestCase
   end
 
   test "skips merchants when LLM returns null" do
-    merchant = ProviderMerchant.create!(source: "lunchflow", name: "Local Diner", provider_merchant_id: "lf_local")
+    merchant = ProviderMerchant.create!(source: "synth", name: "Local Diner", provider_merchant_id: "lf_local")
     create_transaction(account: @account, name: "Local diner", merchant: merchant)
 
     provider_response = provider_success_response([
@@ -46,15 +46,15 @@ class ProviderMerchant::EnhancerTest < ActiveSupport::TestCase
   end
 
   test "deduplicates merchants by website_url" do
-    lunchflow_merchant = ProviderMerchant.create!(source: "lunchflow", name: "Walmart", provider_merchant_id: "lf_walmart")
+    synth_merchant = ProviderMerchant.create!(source: "synth", name: "Walmart", provider_merchant_id: "lf_walmart")
     ai_merchant = ProviderMerchant.create!(source: "ai", name: "Walmart", website_url: "walmart.com",
       logo_url: "https://cdn.brandfetch.io/walmart.com/icon/fallback/lettermark/w/40/h/40?c=test_client_id")
 
-    txn1 = create_transaction(account: @account, name: "Walmart purchase 1", merchant: lunchflow_merchant).transaction
+    txn1 = create_transaction(account: @account, name: "Walmart purchase 1", merchant: synth_merchant).transaction
     txn2 = create_transaction(account: @account, name: "Walmart purchase 2", merchant: ai_merchant).transaction
 
     provider_response = provider_success_response([
-      EnhancedMerchant.new(merchant_id: lunchflow_merchant.id, business_url: "walmart.com")
+      EnhancedMerchant.new(merchant_id: synth_merchant.id, business_url: "walmart.com")
     ])
 
     @llm_provider.expects(:enhance_provider_merchants).returns(provider_response).once
@@ -63,11 +63,11 @@ class ProviderMerchant::EnhancerTest < ActiveSupport::TestCase
 
     assert_equal 1, result[:enhanced]
     assert_equal 1, result[:deduplicated]
-    assert_equal "walmart.com", lunchflow_merchant.reload.website_url
+    assert_equal "walmart.com", synth_merchant.reload.website_url
 
-    # AI merchant's transactions should be reassigned to the lunchflow merchant
-    assert_equal lunchflow_merchant.id, txn2.reload.merchant_id
-    assert_equal lunchflow_merchant.id, txn1.reload.merchant_id
+    # AI merchant's transactions should be reassigned to the synth merchant
+    assert_equal synth_merchant.id, txn2.reload.merchant_id
+    assert_equal synth_merchant.id, txn1.reload.merchant_id
   end
 
   test "returns zero counts when no LLM provider" do
@@ -89,7 +89,7 @@ class ProviderMerchant::EnhancerTest < ActiveSupport::TestCase
   end
 
   test "skips merchants that already have website_url" do
-    merchant = ProviderMerchant.create!(source: "lunchflow", name: "Amazon", provider_merchant_id: "lf_amazon", website_url: "amazon.com")
+    merchant = ProviderMerchant.create!(source: "synth", name: "Amazon", provider_merchant_id: "lf_amazon", website_url: "amazon.com")
     create_transaction(account: @account, name: "Amazon order", merchant: merchant)
 
     # Should not call LLM because no merchants need enhancement

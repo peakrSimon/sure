@@ -299,9 +299,7 @@ tr:
       additional_details: Ek detaylar
       amount: Tutar
       attachments: Ekler
-      category_label: Kategori
       convert: Dönüştür
-      convert_to_trade_button: Alım Satıma Dönüştür
       convert_to_trade_description: Bu işlemi, portföy takibi için menkul kıymet detaylarıyla
         bir Alış veya Satış işlemine dönüştürün.
       convert_to_trade_title: Menkul Kıymet Alım Satımına Dönüştür
@@ -310,7 +308,6 @@ tr:
       delete_subtitle: Bu işlem kalıcı olarak silinir, geçmiş bakiyelerinizi etkiler
         ve geri alınamaz.
       delete_title: İşlemi sil
-      description: Açıklama
       details: Detaylar
       exclude: Hariç Tut
       exclude_description: Hariç tutulan işlemler bütçe hesaplamalarından ve raporlardan
@@ -321,7 +318,6 @@ tr:
       mark_recurring_subtitle: Bunu yinelenen bir işlem olarak takip edin. Tutar farkı,
         geçmiş 6 aydaki benzer işlemlerden otomatik olarak hesaplanır.
       mark_recurring_title: Yinelenen İşlem
-      memo: Not
       merchant_label: Satıcı
       merge_duplicate: Evet, birleştir
       name_label: İsim
@@ -334,7 +330,6 @@ tr:
       one_time_title: Tek seferlik %{type}
       open_matcher: Eşleştiriciyi aç
       overview: Genel Bakış
-      payee: Alıcı
       pending_duplicate_merger_button: Birleştiriciyi aç
       pending_duplicate_merger_description: Bu bekleyen işlemi gerçekleşen sürümüyle
         manuel olarak birleştirin.
@@ -342,11 +337,9 @@ tr:
       potential_duplicate_description: Bu bekleyen işlem aşağıdaki gerçekleşen işlemle
         aynı olabilir. Öyleyse, çift sayımı önlemek için bunları birleştirin.
       potential_duplicate_title: Olası kopya tespit edildi
-      provider_extras: Sağlayıcı ek bilgileri
       settings: Ayarlar
       tab_transactions: İşlemler
       tab_upcoming: Yaklaşan
-      tags_label: Etiketler
       transfer: Transfer
       transfer_matcher_description: Bu işlemi başka bir hesaptaki karşılığına bağlayın.
       transfer_or_debt_payment: Transfer mi yoksa Borç Ödemesi mi?
@@ -384,6 +377,5 @@ tr:
       payment_confirmed: Ödeme onaylandı
       reject_match: Eşleşmeyi reddet
       transfer_confirmed: Transfer onaylandı
-    unknown_name: Bilinmeyen işlem
     update:
       updated: İşlem güncellendi

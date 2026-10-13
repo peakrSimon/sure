@@ -19,7 +19,6 @@ it:
         save: Salva
         tags_label: Etichette
         transactions_section: Transazioni
-    unknown_name: Transazione sconosciuta
     selection_bar:
       duplicate: Duplica
       edit: Modifica
@@ -64,7 +63,6 @@ it:
       transfer: Bonifico
       account_label: Conto
       amount: Importo
-      category_label: Categoria
       date_label: Data
       delete: Elimina
       delete_subtitle: Questa operazione elimina permanentemente la transazione, influisce sui saldi storici e non può essere annullata.
@@ -79,7 +77,6 @@ it:
       one_time_description: Le transazioni una tantum verranno escluse da alcuni calcoli del budget e rapporti per aiutarti a vedere ciò che conta davvero.
       convert_to_trade_title: Converti in operazione su titolo
       convert_to_trade_description: Converti questa transazione in un'operazione di Acquisto o Vendita con dettagli del titolo per il monitoraggio del portafoglio.
-      convert_to_trade_button: Converti in operazione
       transfer_matcher_description: Collega questa transazione alla sua controparte in un altro conto.
       pending_duplicate_merger_title: Duplicato della transazione registrata?
       pending_duplicate_merger_description: Unisci manualmente questa transazione in attesa con la sua versione registrata.
@@ -92,15 +89,10 @@ it:
       note_placeholder: Inserisci una nota
       overview: Panoramica
       settings: Impostazioni
-      tags_label: Etichette
       tab_transactions: Transazioni
       tab_upcoming: In arrivo
       uncategorized: "(non categorizzata)"
       additional_details: "Dettagli aggiuntivi"
-      payee: "Beneficiario"
-      description: "Descrizione"
-      memo: "Memo"
-      provider_extras: "Dati provider"
       transfer_or_debt_payment: "Bonifico o pagamento debito?"
       open_matcher: "Apri corrispondenza"
       convert: "Converti"

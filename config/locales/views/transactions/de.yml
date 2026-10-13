@@ -1,7 +1,6 @@
 ---
 de:
   transactions:
-    unknown_name: Unbekannte Transaktion
     form:
       account: Konto
       account_prompt: Konto auswählen
@@ -42,7 +41,6 @@ de:
       category_set_on_outflow: "Dies ist die Gutschrift eines Transfers. Die Kategorie gehört zur Abbuchung und lässt sich nur dort ändern, damit Budgets sie nur einmal zählen."
       account_label: Konto
       amount: Betrag
-      category_label: Kategorie
       date_label: Datum
       delete: Löschen
       delete_subtitle: Diese Aktion löscht die Transaktion dauerhaft, beeinflusst deine bisherigen Kontostände und kann nicht rückgängig gemacht werden.
@@ -56,7 +54,6 @@ de:
       one_time_description: Einmalige Transaktionen werden aus bestimmten Budgetberechnungen und Berichten ausgeschlossen, damit du das Wichtige besser erkennst.
       convert_to_trade_title: In Wertpapier-Trade umwandeln
       convert_to_trade_description: Diese Transaktion in einen Kauf- oder Verkaufstrade mit Wertpapierdetails für die Portfolioverfolgung umwandeln.
-      convert_to_trade_button: In Trade umwandeln
       merchant_label: Händler
       name_label: Name
       nature: Typ
@@ -65,14 +62,12 @@ de:
       note_placeholder: Notiz eingeben
       overview: Übersicht
       settings: Einstellungen
-      tags_label: Tags
       tab_transactions: Transaktionen
       tab_upcoming: Anstehend
       uncategorized: (ohne Kategorie)
       additional_details: Weitere Details
       attachments: Anhänge
       convert: Umwandeln
-      description: Beschreibung
       keep_both: Nein, beide behalten
       loan_payment: Kreditrate
       mark_recurring: Als wiederkehrend markieren
@@ -82,16 +77,13 @@ de:
       applied_to_title: Damit bezahlte Rechnungen
       applied_to_detail: "%{amount} für die am %{date} fällige Rechnung"
       applied_to_unreviewed: Prüfung erforderlich
-      memo: Memo
       merge_duplicate: Ja, zusammenführen
       open_matcher: Zuordnung öffnen
-      payee: Empfänger
       pending_duplicate_merger_button: Zusammenführen öffnen
       pending_duplicate_merger_description: Führ diese offene Transaktion von Hand mit ihrer gebuchten Fassung zusammen.
       pending_duplicate_merger_title: Duplikat einer gebuchten Transaktion?
       potential_duplicate_description: Diese offene Transaktion ist womöglich dieselbe wie die gebuchte darunter. Führ sie in dem Fall zusammen, damit nichts doppelt zählt.
       potential_duplicate_title: Mögliches Duplikat erkannt
-      provider_extras: Anbieterdaten
       transfer: Überweisung
       transfer_matcher_description: Verknüpf diese Transaktion mit ihrem Gegenstück in einem anderen Konto.
       transfer_or_debt_payment: Überweisung oder Schuldentilgung?

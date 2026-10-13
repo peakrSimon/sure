@@ -9,10 +9,6 @@ pt-PT:
     account:
       complete_setup: Concluir configuração
       edit: Editar
-      link_lunchflow: Ligar com Lunch Flow
-      link_provider: Ligar serviço externo
-      unlink_provider: Desligar serviço externo
-      change_simplefin_account: Alterar conta SimpleFIN
       troubleshoot: Resolver problemas
       enable: Ativar conta
       disable: Desativar conta
@@ -32,7 +28,6 @@ pt-PT:
       depository_only: "Apenas as contas de dinheiro e cartões de crédito podem ser definidas como predefinidas."
     destroy:
       success: "Conta %{type} agendada para eliminação"
-      cannot_delete_linked: "Não é possível eliminar uma conta ligada. Desligue-a primeiro."
       failed: "A eliminação do recurso falhou. Tente novamente mais tarde."
     empty:
       empty_message: Adicione uma conta através de ligação, importação ou introdução manual.
@@ -51,8 +46,6 @@ pt-PT:
       notes_label: Notas
       notes_placeholder: Guarde informações adicionais, como números de conta, códigos de classificação, IBAN, números de encaminhamento, etc.
       exclude_from_reports: Excluir de todos os relatórios
-      enable_category_matcher_label: Ativar correspondência de categorias
-      enable_category_matcher_hint: Quando ativado, a categoria sugerida pelo serviço externo é aplicada às transações importadas. Desative para deixar as novas transações sem categoria.
     index:
       accounts: Contas
       cancel_sync: Cancelar sincronização
@@ -71,10 +64,6 @@ pt-PT:
       method_selector:
         connected_entry: Ligar conta
         connected_entry_eu: Ligar conta da UE
-        link_with_provider: "Ligar com %{provider}"
-        lunchflow_entry: Ligar conta do Lunch Flow
-        manual_entry: Introduzir saldo da conta
-        title: Como gostaria de adicionar?
       title: O que gostaria de adicionar?
     show:
       limited_fx_history_warning: "O histórico de taxas de câmbio só está disponível a partir de %{date}. As transações anteriores a esta data utilizam conversões de moeda aproximadas — tal acontece quando o serviço externo de câmbio apenas oferece uma janela histórica limitada."
@@ -179,26 +168,6 @@ pt-PT:
       eu: Europa
       in: Índia
       generic: Geral
-    confirm_unlink:
-      title: Desligar conta do serviço externo?
-      description_html: "Está prestes a desligar <strong>%{account_name}</strong> de <strong>%{provider_name}</strong>. Isto irá convertê-la numa conta manual."
-      warning_title: O que isto significa
-      warning_no_sync: A conta deixará de sincronizar automaticamente com o seu serviço externo
-      warning_manual_updates: Terá de adicionar transações e atualizar saldos manualmente
-      warning_transactions_kept: Todas as transações e saldos existentes serão preservados
-      warning_can_delete: Após desligar, poderá eliminar a conta, se necessário
-      confirm_button: Confirmar e desligar
-    unlink:
-      success: "Conta desligada com sucesso. Agora é uma conta manual."
-      not_linked: "A conta não está ligada a um serviço externo"
-      error: "Falha ao desligar a conta: %{error}"
-      generic_error: "Ocorreu um erro inesperado. Tente novamente."
-    select_provider:
-      title: Selecionar um serviço externo para ligar
-      description: "Escolha o serviço externo que pretende utilizar para ligar %{account_name}"
-      already_linked: "A conta já está ligada a um serviço externo"
-      no_providers: "Nenhum serviço externo configurado atualmente"
-
   email_confirmations:
     new:
       invalid_token: Link de confirmação inválido ou expirado.

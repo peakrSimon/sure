@@ -607,32 +607,6 @@ class InvestmentStatementTest < ActiveSupport::TestCase
     assert_equal 5, @statement.total_interest
   end
 
-  test "dividends and interest count the transaction shapes providers write" do
-    period = Period.custom(start_date: Date.current.beginning_of_month, end_date: Date.current.end_of_month)
-    account = create_investment_account(balance: 500)
-
-    create_income_trade(account: account, label: "Dividend", amount: 50, date: period.start_date)
-    create_income_transaction(account: account, label: "Dividend", amount: 12.5, date: period.start_date, extra_shape: :flat)
-    create_income_transaction(account: account, label: "Interest", amount: 4, date: period.start_date, extra_shape: :none)
-    # PlaidAccount::Investments::TransactionsProcessor writes a dividend as
-    # a qty-0 trade with amount 0 * price, so its cash is not recoverable
-    # here (its `price` is a per-share figure, not the payment). It is
-    # income with amount 0 until the processor is fixed; the 62.5 below
-    # deliberately excludes it.
-    create_plaid_dividend_trade(account: account, date: period.start_date)
-    # Pending income is not counted until it posts
-    create_labelled_transaction(account: account, label: "Dividend", amount: -99, date: period.start_date, extra: { "plaid" => { "pending" => true } })
-    # A labelled transaction outside the period is not counted
-    create_income_transaction(account: account, label: "Dividend", amount: 999, date: period.start_date - 1.day, extra_shape: :flat)
-
-    totals = @statement.totals(period: period)
-
-    assert_equal Money.new(62.5, "USD"), totals.dividends
-    assert_equal Money.new(4, "USD"), totals.interest
-    assert_equal Money.new(66.5, "USD"), totals.total_income
-    assert_equal Money.new(0, "USD"), totals.contributions
-  end
-
   test "income nets by sign, so a charge or reversal labelled as income reduces it" do
     # Portfolio::FlowClassifier decides income by label, not sign, and says to
     # sum signed amounts: a margin-interest charge labelled "Interest" is money

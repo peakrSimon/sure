@@ -9,10 +9,6 @@ zh-TW:
     account:
       complete_setup: 完成設定
       edit: 編輯
-      link_lunchflow: 連結 Lunch Flow
-      link_provider: 連結服務供應商
-      unlink_provider: 解除與服務供應商的連結
-      change_simplefin_account: 更換 SimpleFIN 帳戶
       troubleshoot: 疑難排解
       enable: 啟用帳戶
       disable: 停用帳戶
@@ -32,7 +28,6 @@ zh-TW:
       depository_only: 只有現金與信用卡帳戶可以設為預設。
     destroy:
       success: '%{type} 帳戶已排定刪除'
-      cannot_delete_linked: 無法刪除已連結的帳戶。請先解除連結。
       failed: 資源刪除失敗，請稍後再試。
     empty:
       empty_message: 請透過連線、匯入或手動輸入來新增帳戶。
@@ -51,8 +46,6 @@ zh-TW:
       notes_label: 備註
       notes_placeholder: 儲存額外資訊，例如帳號、分行代碼、IBAN、銀行轉帳號碼 (Routing numbers) 等。
       exclude_from_reports: 從所有報表中排除
-      enable_category_matcher_label: 啟用分類比對
-      enable_category_matcher_hint: 啟用後，供應商建議的分類會套用到匯入的交易。停用則新交易會維持未分類。
     index:
       accounts: 帳戶管理
       cancel_sync: 取消同步
@@ -71,10 +64,6 @@ zh-TW:
       method_selector:
         connected_entry: 連結帳戶
         connected_entry_eu: 連結歐盟 (EU) 帳戶
-        link_with_provider: 與 %{provider} 連結
-        lunchflow_entry: 連結 Lunch Flow 帳戶
-        manual_entry: 輸入帳戶餘額
-        title: 您想如何新增？
       title: 您想新增什麼內容？
     show:
       limited_fx_history_warning: 匯率歷史只有 %{date}之後的資料。當匯率供應商只提供有限的歷史區間時，這個日期之前的交易會改用近似的匯率換算。
@@ -175,25 +164,6 @@ zh-TW:
       eu: 歐洲
       in: 印度
       generic: 一般
-    confirm_unlink:
-      title: 解除帳戶與供應商的連結？
-      description_html: 您即將解除 <strong>%{account_name}</strong> 與 <strong>%{provider_name}</strong> 的連結。解除後這個帳戶會改為手動管理。
-      warning_title: 這代表什麼
-      warning_no_sync: 帳戶將不再與您的供應商自動同步
-      warning_manual_updates: 您將需要手動新增交易並更新餘額
-      warning_transactions_kept: 所有現有的交易和餘額紀錄將會保留
-      warning_can_delete: 解除連結後，您就可以視需要刪除這個帳戶
-      confirm_button: 確認並解除連結
-    unlink:
-      success: 帳戶連結已成功解除。此帳戶現在改為手動管理。
-      not_linked: 帳戶未與任何供應商連結
-      error: 解除連結失敗：%{error}
-      generic_error: 發生未預期的錯誤。請再試一次。
-    select_provider:
-      title: 選擇要連結的供應商
-      description: 選擇您想用來連結 %{account_name} 的供應商
-      already_linked: 帳戶已經與供應商連結
-      no_providers: 目前未設定任何供應商
   email_confirmations:
     new:
       invalid_token: 無效或已過期的驗證連結。

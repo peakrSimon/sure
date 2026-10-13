@@ -279,10 +279,7 @@ class TransfersController < ApplicationController
       @accounts = accessible_accounts
         .active
         .alphabetically
-        .includes(
-          :account_providers,
-          logo_attachment: :blob
-        )
+        .includes(logo_attachment: :blob)
     end
 
     def transfer_update_params

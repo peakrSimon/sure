@@ -22,7 +22,6 @@ it:
       automatic_description: "Il rilevamento automatico viene eseguito anche dopo:"
       triggers:
         - Completamento importazioni CSV (transazioni, operazioni, conti, ecc.)
-        - Completamento di qualsiasi sincronizzazione provider (Plaid, SimpleFIN, ecc.)
     identified: Identificati %{count} schemi di transazioni ricorrenti
     cleaned_up: Eliminate %{count} transazioni ricorrenti obsolete
     marked_inactive: Transazione ricorrente contrassegnata come inattiva

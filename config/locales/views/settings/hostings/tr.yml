@@ -249,7 +249,6 @@ tr:
         invites: Davet Kodları
         sync_settings: Eşitleme Ayarları
         title: Kendi Sunucunda Barındırma
-        property_valuation_providers: Gayrimenkul Değerleme Sağlayıcıları
       sync_auto_sync_scheduler!:
         scheduler_sync_failed: Ayarlar kaydedildi, ancak eşitleme zamanlaması güncellenemedi.
           Lütfen tekrar deneyin veya sunucu günlüklerini kontrol edin.
@@ -260,13 +259,6 @@ tr:
         auto_sync_time_description: Otomatik eşitlemenin gerçekleşeceği günün saatini
           belirtin.
         auto_sync_time_label: Eşitleme saati (HH:MM)
-        env_configured_message: Bir sağlayıcı ortam değişkeni (SIMPLEFIN_INCLUDE_PENDING
-          veya PLAID_INCLUDE_PENDING) ayarlandığı için bu ayar devre dışı bırakıldı.
-          Bu ayarı etkinleştirmek için kaldırın.
-        include_pending_description: Etkinleştirildiğinde, bekleyen (henüz kesinleşmemiş)
-          işlemler içe aktarılır ve kesinleştiklerinde otomatik olarak eşleştirilir.
-          Bankanız güvenilmez bekleyen veri sağlıyorsa devre dışı bırakın.
-        include_pending_label: Bekleyen işlemleri dahil et
       synth_settings:
         api_calls_used: "%{used} / %{limit} API çağrısı kullanıldı (%{percentage})"
         description: Synth tarafından sağlanan API anahtarını girin
@@ -356,20 +348,6 @@ tr:
         unavailable_title: Yahoo Finance doğrulanamadı.
         unavailable_message: Yahoo Finance'e ulaşılamadı veya beklenmeyen bir yanıt döndü. İnternet bağlantınızı kontrol edip daha sonra tekrar deneyin.
         status_unknown: Yahoo Finance durumu kontrol ediliyor.
-      rentcast_settings:
-        title: RentCast
-        description: Mülk eklerken ABD'deki mülk ayrıntılarını ve değer tahminlerini sorgulamak için RentCast API anahtarınızı girin. Ücretsiz katman, mülk sorguları ve günlük değerleme güncellemeleri arasında paylaşılan ayda 50 API isteğiyle sınırlıdır. Ücretli bir planda bu sınırı RENTCAST_MAX_REQUESTS_PER_MONTH ortam değişkeniyle yükseltin.
-        env_configured_message: RENTCAST_API_KEY ortam değişkeni aracılığıyla başarıyla yapılandırıldı.
-        label: API Anahtarı
-        placeholder: RentCast API anahtarınızı buraya girin
-        usage: Aylık %{limit} isteğin %{used} tanesi kullanıldı
-      realie_settings:
-        title: Realie
-        description: Mülk eklerken ABD'deki mülk ayrıntılarını ve değer tahminlerini sorgulamak için Realie API anahtarınızı girin. Ücretsiz katman, mülk sorguları ve günlük değerleme güncellemeleri arasında paylaşılan ayda 25 API isteğiyle sınırlıdır. Ücretli bir planda bu sınırı REALIE_MAX_REQUESTS_PER_MONTH ortam değişkeniyle yükseltin.
-        env_configured_message: REALIE_API_KEY ortam değişkeni aracılığıyla başarıyla yapılandırıldı.
-        label: API Anahtarı
-        placeholder: Realie API anahtarınızı buraya girin
-        usage: Aylık %{limit} isteğin %{used} tanesi kullanıldı
       mansa_settings:
         title: Mansa
         description: Mansa API'den aldığınız API anahtarını girin. Buradaki başka hiçbir sağlayıcının kapsamadığı NGX'i (Nijerya Borsası) destekler. Mansa diğer Afrika borsalarını da kapsar, ancak bu entegrasyonla yalnızca NGX doğrulanmıştır.

@@ -9,10 +9,6 @@ hu:
     account:
       complete_setup: Beállítás befejezése
       edit: Szerkesztés
-      link_lunchflow: Összekapcsolás a Lunch Flow-val
-      link_provider: Összekapcsolás szolgáltatóval
-      unlink_provider: Leválasztás a szolgáltatóról
-      change_simplefin_account: SimpleFIN fiók módosítása
       troubleshoot: Hibakeresés
       enable: Számla engedélyezése
       disable: Számla letiltása
@@ -29,7 +25,6 @@ hu:
       depository_only: "Csak készpénz- és hitelkártya-számlák állíthatók be alapértelmezettként."
     destroy:
       success: "%{type} számla törlésre ütemezve"
-      cannot_delete_linked: "Összekapcsolt számla nem törölhető. Először válaszd le a szolgáltatóról."
       failed: "Az erőforrás törlése sikertelen. Próbáld meg később."
     empty:
       empty_message: Állítson be számlát szinkronizálással, importálással vagy manuális rögzítéssel.
@@ -64,10 +59,6 @@ hu:
       method_selector:
         connected_entry: Számla összekapcsolása
         connected_entry_eu: EU-s számla összekapcsolása
-        link_with_provider: "Összekapcsolás: %{provider}"
-        lunchflow_entry: Lunch Flow számla összekapcsolása
-        manual_entry: Egyenleg manuális megadása
-        title: Hogyan szeretnéd hozzáadni?
       title: Mit szeretnél hozzáadni?
     show:
       limited_fx_history_warning: "Az árfolyam-előzmények csak %{date} dátumtól érhetők el. Az ezt megelőző tranzakciókhoz közelítő árfolyamok kerülnek alkalmazásra – ez akkor fordulhat elő, ha a devizaárfolyam-szolgáltató csak korlátozott előzményadatokat kínál."
@@ -166,26 +157,6 @@ hu:
       eu: Európa
       in: India
       generic: Általános
-    confirm_unlink:
-      title: Leválasztod a számlát a szolgáltatóról?
-      description_html: "Készülsz leválasztani a <strong>%{account_name}</strong> számlát a <strong>%{provider_name}</strong> szolgáltatóról. Ez manuális számlává alakítja át."
-      warning_title: Mit jelent ez
-      warning_no_sync: A számla többé nem szinkronizál automatikusan a szolgáltatóval
-      warning_manual_updates: A tranzakciókat manuálisan kell hozzáadnod, az egyenleget manuálisan kell frissítened
-      warning_transactions_kept: Minden meglévő tranzakció és egyenleg megmarad
-      warning_can_delete: A leválasztás után szükség esetén törölheted a számlát
-      confirm_button: Megerősítés és leválasztás
-    unlink:
-      success: "A számla sikeresen leválasztva. Mostantól manuális számla."
-      not_linked: "A számla nincs összekapcsolva szolgáltatóval"
-      error: "Nem sikerült leválasztani a számlát: %{error}"
-      generic_error: "Váratlan hiba történt. Kérjük, próbáld újra."
-    select_provider:
-      title: Válassz szolgáltatót a csatlakozáshoz
-      description: "Válaszd ki, melyik szolgáltatón keresztül szeretnéd összekapcsolni: %{account_name}"
-      already_linked: "A számla már össze van kapcsolva egy szolgáltatóval"
-      no_providers: "Jelenleg nincs konfigurált szolgáltató"
-
   email_confirmations:
     new:
       invalid_token: Érvénytelen vagy lejárt megerősítő hivatkozás.

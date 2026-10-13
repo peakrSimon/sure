@@ -9,10 +9,6 @@ es:
     account:
       complete_setup: Completar configuración
       edit: Editar
-      link_lunchflow: Vincular con Lunch Flow
-      link_provider: Vincular con proveedor
-      unlink_provider: Desvincular de proveedor
-      change_simplefin_account: Cambiar cuenta de SimpleFIN
       troubleshoot: Solucionar problemas
       enable: Activar cuenta
       disable: Desactivar cuenta
@@ -32,7 +28,6 @@ es:
       depository_only: Solo las cuentas de efectivo y tarjeta de crédito pueden establecerse como predeterminadas.
     destroy:
       success: Cuenta %{type} programada para eliminación
-      cannot_delete_linked: No se puede eliminar una cuenta vinculada. Por favor, desvincúlela primero.
       failed: No se pudo eliminar el recurso. Inténtalo de nuevo más tarde.
     empty:
       empty_message: Añade una cuenta mediante conexión, importación o introducción manual.
@@ -68,10 +63,6 @@ es:
       method_selector:
         connected_entry: Vincular cuenta
         connected_entry_eu: Vincular cuenta de la UE
-        link_with_provider: Vincular con %{provider}
-        lunchflow_entry: Vincular cuenta de Lunch Flow
-        manual_entry: Introducir saldo de la cuenta
-        title: ¿Cómo te gustaría añadirla?
       title: ¿Qué te gustaría añadir?
     show:
       limited_fx_history_warning: El historial de tipos de cambio solo está disponible desde %{date}. Las transacciones anteriores a esa fecha usan conversiones de divisa aproximadas; esto puede ocurrir cuando el proveedor de tipos de cambio solo ofrece una ventana histórica limitada.
@@ -172,25 +163,6 @@ es:
       eu: Europa
       in: India
       generic: General
-    confirm_unlink:
-      title: ¿Desvincular cuenta del proveedor?
-      description_html: Estás a punto de desvincular <strong>%{account_name}</strong> de <strong>%{provider_name}</strong>. Esto la convertirá en una cuenta manual.
-      warning_title: Qué significa esto
-      warning_no_sync: La cuenta dejará de sincronizarse automáticamente con tu proveedor
-      warning_manual_updates: Deberás añadir transacciones y actualizar saldos manualmente
-      warning_transactions_kept: Se conservarán todas las transacciones y saldos existentes
-      warning_can_delete: Tras desvincularla, podrás eliminar la cuenta si es necesario
-      confirm_button: Confirmar y desvincular
-    unlink:
-      success: Cuenta desvinculada correctamente. Ahora es una cuenta manual.
-      not_linked: La cuenta no está vinculada a un proveedor
-      error: 'Error al desvincular la cuenta: %{error}'
-      generic_error: Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.
-    select_provider:
-      title: Selecciona un proveedor para vincular
-      description: Elige qué proveedor quieres usar para vincular %{account_name}
-      already_linked: La cuenta ya está vinculada a un proveedor
-      no_providers: No hay proveedores configurados actualmente
   email_confirmations:
     new:
       invalid_token: Enlace de confirmación inválido o caducado.

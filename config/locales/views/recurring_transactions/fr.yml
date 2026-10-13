@@ -130,7 +130,6 @@ fr:
       title: Détection automatique des modèles
       triggers:
       - Les importations CSV sont terminées (transactions, trades, comptes, etc.)
-      - Toute synchronisation de fournisseur est terminée (Plaid, SimpleFIN, etc.)
     manage:
       cta: Ouvrir toutes les factures
       description: Déclarez, modifiez, mettez en pause et payez tout depuis cette page. Celle-ci pilote la détection.

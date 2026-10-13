@@ -1,7 +1,6 @@
 ---
 nl:
   transactions:
-    unknown_name: Onbekende transactie
     form:
       account: Account
       account_prompt: Selecteer een Account
@@ -26,7 +25,6 @@ nl:
     show:
       account_label: Account
       amount: Bedrag
-      category_label: Categorie
       date_label: Datum
       delete: Verwijderen
       delete_subtitle: Dit verwijdert permanent de transactie, beïnvloedt uw historische
@@ -41,7 +39,6 @@ nl:
       one_time_description: Eenmalige transacties worden uitgesloten van bepaalde budgetberekeningen en rapporten om u te helpen zien wat echt belangrijk is.
       convert_to_trade_title: Converteer naar Effectentransactie
       convert_to_trade_description: Converteer deze transactie naar een Koop- of Verkooptransactie met effectendetails voor portfoliobeheer.
-      convert_to_trade_button: Converteer naar Trade
       merchant_label: Handelaar
       name_label: Naam
       nature: Type
@@ -50,7 +47,6 @@ nl:
       note_placeholder: Voer een notitie in
       overview: Overzicht
       settings: Instellingen
-      tags_label: Tags
       uncategorized: "(ongecategoriseerd)"
     activity_labels:
       buy: Kopen

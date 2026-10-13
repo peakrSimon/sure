@@ -698,7 +698,7 @@ class TransactionsController < ApplicationController
         .manual
         .active
         .alphabetically
-        .includes(:account_providers, logo_attachment: :blob)
+        .includes(logo_attachment: :blob)
         .to_a
       @categories = Current.family.categories.alphabetically_by_hierarchy.to_a
       @merchants = Current.family.available_merchants_for(Current.user).alphabetically.to_a

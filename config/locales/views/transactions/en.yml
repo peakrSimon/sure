@@ -19,7 +19,6 @@ en:
         save: Save
         tags_label: Tags
         transactions_section: Transactions
-    unknown_name: Unknown transaction
     selection_bar:
       duplicate: Duplicate
       edit: Edit
@@ -81,7 +80,6 @@ en:
       transfer: Transfer
       account_label: Account
       amount: Amount
-      category_label: Category
       date_label: Date
       delete: Delete
       delete_subtitle: This permanently deletes the transaction, affects your historical
@@ -97,7 +95,6 @@ en:
       one_time_description: One-time transactions will be excluded from certain budgeting calculations and reports to help you see what's really important.
       convert_to_trade_title: Convert to Security Trade
       convert_to_trade_description: Convert this transaction into a Buy or Sell trade with security details for portfolio tracking.
-      convert_to_trade_button: Convert to Trade
       transfer_matcher_description: Connect this transaction to its counterpart in another account.
       pending_duplicate_merger_title: Duplicate of Posted Transaction?
       pending_duplicate_merger_description: Manually merge this pending transaction with its posted version.
@@ -110,36 +107,12 @@ en:
       note_placeholder: Enter a note
       overview: Overview
       settings: Settings
-      tags_label: Tags
       tab_transactions: Transactions
       tab_upcoming: Upcoming
       uncategorized: "(uncategorized)"
       additional_details: "Additional details"
-      payee: "Payee"
-      description: "Description"
-      memo: "Memo"
-      original_description: "Original description"
-      payment_channel: "Payment channel"
-      transaction_code: "Transaction code"
-      provider_extras: "Provider extras"
-      plaid_payment_meta_label: "Payment meta · %{name}"
-      plaid_counterparty_label: "Counterparty %{index}"
       # Provider field names. The set is open-ended — anything not listed falls
       # back to a humanized form of the provider's own identifier.
-      provider_extra_fields:
-        by_order_of: "By order of"
-        confidence_level: "Confidence level"
-        entity_id: "Entity ID"
-        logo_url: "Logo URL"
-        name: "Name"
-        payee: "Payee"
-        payer: "Payer"
-        phone_number: "Phone number"
-        ppd_id: "PPD ID"
-        reason: "Reason"
-        reference_number: "Reference number"
-        type: "Type"
-        website: "Website"
       transfer_or_debt_payment: "Transfer or Debt Payment?"
       open_matcher: "Open matcher"
       convert: "Convert"

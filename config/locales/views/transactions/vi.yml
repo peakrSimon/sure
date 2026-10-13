@@ -19,7 +19,6 @@ vi:
         save: Lưu
         tags_label: Nhãn
         transactions_section: Giao dịch
-    unknown_name: Giao dịch không xác định
     selection_bar:
       duplicate: Nhân đôi
       edit: Chỉnh sửa
@@ -62,7 +61,6 @@ vi:
       transfer: Chuyển khoản
       account_label: Tài khoản
       amount: Số tiền
-      category_label: Danh mục
       date_label: Ngày
       delete: Xóa
       delete_subtitle: Thao tác này xóa vĩnh viễn giao dịch, ảnh hưởng số dư lịch sử và không thể hoàn tác.
@@ -77,7 +75,6 @@ vi:
       one_time_description: Giao dịch một lần sẽ bị loại trừ khỏi một số tính toán ngân sách và báo cáo.
       convert_to_trade_title: Chuyển đổi thành giao dịch chứng khoán
       convert_to_trade_description: Chuyển giao dịch này thành giao dịch Mua hoặc Bán với thông tin chứng khoán để theo dõi danh mục.
-      convert_to_trade_button: Chuyển đổi thành giao dịch
       transfer_matcher_description: Kết nối giao dịch này với giao dịch đối ứng trong tài khoản khác.
       pending_duplicate_merger_title: Trùng lặp với giao dịch đã đăng?
       pending_duplicate_merger_description: Gộp thủ công giao dịch đang chờ này với phiên bản đã đăng.
@@ -90,15 +87,10 @@ vi:
       note_placeholder: Nhập ghi chú
       overview: Tổng quan
       settings: Cài đặt
-      tags_label: Nhãn
       tab_transactions: Giao dịch
       tab_upcoming: Sắp tới
       uncategorized: "(chưa phân loại)"
       additional_details: "Thông tin bổ sung"
-      payee: "Người nhận"
-      description: "Mô tả"
-      memo: "Ghi nhớ"
-      provider_extras: "Thông tin nhà cung cấp"
       transfer_or_debt_payment: "Chuyển khoản hay Thanh toán nợ?"
       open_matcher: "Mở công cụ khớp"
       convert: "Chuyển đổi"

@@ -22,7 +22,6 @@ vi:
       automatic_description: "Nhận dạng tự động cũng chạy sau:"
       triggers:
         - Nhập CSV hoàn tất (giao dịch, giao dịch chứng khoán, tài khoản, v.v.)
-        - Bất kỳ lần đồng bộ nhà cung cấp nào hoàn tất (Plaid, SimpleFIN, v.v.)
     identified: Đã xác định %{count} mẫu giao dịch định kỳ
     cleaned_up: Đã dọn dẹp %{count} giao dịch định kỳ cũ
     marked_inactive: Giao dịch định kỳ đã được đánh dấu không hoạt động

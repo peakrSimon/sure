@@ -22,7 +22,6 @@ de:
       automatic_description: "Die automatische Erkennung wird außerdem ausgeführt nach:"
       triggers:
         - Abschluss von CSV-Importen (Transaktionen, Trades, Konten usw.)
-        - Abschluss einer Anbieter-Synchronisierung (Plaid, SimpleFIN usw.)
     identified: "%{count} wiederkehrende Transaktionsmuster erkannt"
     cleaned_up: "%{count} alte wiederkehrende Transaktionen bereinigt"
     marked_inactive: Wiederkehrende Transaktion als inaktiv markiert

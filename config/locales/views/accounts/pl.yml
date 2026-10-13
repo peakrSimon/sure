@@ -6,7 +6,6 @@ pl:
         success: Wpis został usunięty.
   accounts:
     account:
-      change_simplefin_account: Zmień konto SimpleFIN
       complete_setup: Dokończ konfigurację
       default_label: Domyślne
       delete: Usuń konto
@@ -16,31 +15,15 @@ pl:
       exclude_from_reports: Wyklucz ze wszystkich raportów
       excluded_from_reports_indicator: Wykluczone z raportów
       include_in_reports: Uwzględnij w raportach
-      link_lunchflow: Połącz z Lunch Flow
-      link_provider: Połącz z dostawcą
       remove_default: Usuń status domyślnego
       set_default: Ustaw jako domyślne
       sharing: Udostępnianie
       troubleshoot: Rozwiąż problem
-      unlink_provider: Odłącz od dostawcy
     chart:
       data_not_available: Dane niedostępne dla wybranego okresu
-    confirm_unlink:
-      confirm_button: Potwierdź i odłącz
-      description_html: Zaraz odłączysz <strong>%{account_name}</strong> od <strong>%{provider_name}</strong>.
-        Konto zostanie przekształcone w konto ręczne.
-      title: Odłączyć konto od dostawcy?
-      warning_can_delete: Po odłączeniu będzie można usunąć konto, jeśli zajdzie taka
-        potrzeba
-      warning_manual_updates: Trzeba będzie ręcznie dodawać transakcje i aktualizować
-        salda
-      warning_no_sync: Konto nie będzie już synchronizować się automatycznie z dostawcą
-      warning_title: Co to oznacza
-      warning_transactions_kept: Wszystkie istniejące transakcje i salda zostaną zachowane
     create:
       success: Utworzono konto %{type}
     destroy:
-      cannot_delete_linked: Nie można usunąć połączonego konta. Najpierw je odłącz.
       failed: Usunięcie zasobu nie powiodło się. Spróbuj ponownie później.
       success: Zaplanowano usunięcie konta %{type}
     empty:
@@ -50,10 +33,6 @@ pl:
     form:
       additional_details: Dodatkowe informacje
       balance: 'Saldo na dzień:'
-      enable_category_matcher_hint: Po włączeniu sugerowana przez dostawcę kategoria
-        jest stosowana do importowanych transakcji. Wyłącz, żeby nowe transakcje zostawały
-        bez kategorii.
-      enable_category_matcher_label: Włącz dopasowywanie kategorii
       exclude_from_reports: Wyklucz ze wszystkich raportów
       institution_domain_label: Domena instytucji
       institution_domain_placeholder: np. pkobp.pl
@@ -83,17 +62,8 @@ pl:
       method_selector:
         connected_entry: Połącz konto
         connected_entry_eu: Połącz konto z UE
-        link_with_provider: Połącz z %{provider}
-        lunchflow_entry: Połącz konto Lunch Flow
-        manual_entry: Wprowadź saldo konta
-        title: Jak chcesz je dodać?
       title: Co chcesz dodać?
     not_authorized: Nie masz uprawnień do zarządzania tym kontem
-    select_provider:
-      already_linked: Konto jest już połączone z dostawcą
-      description: Wybierz dostawcę, którego chcesz użyć do połączenia %{account_name}
-      no_providers: Obecnie nie skonfigurowano żadnych dostawców
-      title: Wybierz dostawcę do połączenia
     set_default:
       depository_only: Tylko konta gotówkowe i karty kredytowe mogą być ustawione
         jako domyślne.
@@ -206,11 +176,6 @@ pl:
       other_liability: Inne zobowiązania
       property: Nieruchomości
       vehicle: Pojazdy
-    unlink:
-      error: 'Nie udało się odłączyć konta: %{error}'
-      generic_error: Wystąpił nieoczekiwany błąd. Spróbuj ponownie.
-      not_linked: Konto nie jest połączone z dostawcą
-      success: Konto zostało pomyślnie odłączone. Teraz jest kontem ręcznym.
     update:
       success: Zaktualizowano konto %{type}
   email_confirmations:
