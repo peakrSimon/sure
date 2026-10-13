@@ -32,12 +32,6 @@ RSpec.configure do |config|
             in: :header,
             description: 'API key for authentication. Generate one from your account settings.'
           },
-          financekitPublisher: {
-            type: :http,
-            scheme: :bearer,
-            bearerFormat: 'opaque publisher credential',
-            description: 'Revocable credential restricted to one FinanceKit publisher upload URL.'
-          },
           oauth2: {
             type: :oauth2,
             flows: {
@@ -1359,89 +1353,6 @@ RSpec.configure do |config|
               data: { '$ref' => '#/components/schemas/ImportSession' }
             }
           },
-          ProviderConnectionInstitution: {
-            type: :object,
-            required: %w[name],
-            properties: {
-              name: { type: :string, nullable: true },
-              domain: { type: :string, nullable: true },
-              url: { type: :string, nullable: true }
-            }
-          },
-          ProviderConnectionAccounts: {
-            type: :object,
-            required: %w[total_count linked_count unlinked_count],
-            properties: {
-              total_count: { type: :integer, minimum: 0 },
-              linked_count: { type: :integer, minimum: 0 },
-              unlinked_count: { type: :integer, minimum: 0 }
-            }
-          },
-          ProviderConnectionSyncLatest: {
-            type: :object,
-            required: %w[id status created_at],
-            properties: {
-              id: { type: :string, format: :uuid },
-              status: { type: :string },
-              created_at: { type: :string, format: :'date-time' },
-              syncing_at: { type: :string, format: :'date-time', nullable: true },
-              completed_at: { type: :string, format: :'date-time', nullable: true },
-              failed_at: { type: :string, format: :'date-time', nullable: true },
-              error: {
-                type: :object,
-                nullable: true,
-                description: "Sanitized latest sync error summary. Null when the latest sync is not failed or stale.",
-                required: %w[present],
-                properties: {
-                  present: { type: :boolean, description: "Always true when this object is present." },
-                  message: { type: :string, nullable: true, description: "Stable sanitized error category message; raw provider error text is never exposed." }
-                }
-              }
-            }
-          },
-          ProviderConnectionSync: {
-            type: :object,
-            required: %w[syncing],
-            properties: {
-              syncing: { type: :boolean },
-              status_summary: { type: :string, nullable: true },
-              last_synced_at: { type: :string, format: :'date-time', nullable: true },
-              latest: {
-                allOf: [ { '$ref' => '#/components/schemas/ProviderConnectionSyncLatest' } ],
-                nullable: true
-              }
-            }
-          },
-          ProviderConnection: {
-            type: :object,
-            required: %w[id provider provider_type name status requires_update credentials_configured scheduled_for_deletion pending_account_setup institution accounts sync created_at updated_at],
-            properties: {
-              id: { type: :string, format: :uuid },
-              provider: { type: :string },
-              provider_type: { type: :string },
-              name: { type: :string },
-              status: { type: :string, nullable: true },
-              requires_update: { type: :boolean, nullable: true, description: "False when the provider item does not expose this status." },
-              credentials_configured: { type: :boolean, nullable: true, description: "False when credential readiness is unknown." },
-              scheduled_for_deletion: { type: :boolean, nullable: true, description: "False when the provider item does not expose this status." },
-              pending_account_setup: { type: :boolean, nullable: true, description: "False when account setup state is unknown." },
-              institution: { '$ref' => '#/components/schemas/ProviderConnectionInstitution' },
-              accounts: { '$ref' => '#/components/schemas/ProviderConnectionAccounts' },
-              sync: { '$ref' => '#/components/schemas/ProviderConnectionSync' },
-              created_at: { type: :string, format: :'date-time' },
-              updated_at: { type: :string, format: :'date-time' }
-            }
-          },
-          ProviderConnectionCollection: {
-            type: :object,
-            required: %w[data],
-            properties: {
-              data: {
-                type: :array,
-                items: { '$ref' => '#/components/schemas/ProviderConnection' }
-              }
-            }
-          },
           ImportRowMapping: {
             type: :object,
             required: %w[key type value create_when_empty creatable mappable],
@@ -1872,10 +1783,6 @@ RSpec.configure do |config|
       }
     }
   }
-
-  config.openapi_specs["openapi.yaml"][:components][:schemas].merge!(
-    JSON.parse(Rails.root.join("docs/api/financekit/schemas.json").read)
-  )
 
   config.openapi_format = :yaml
 end

@@ -64,30 +64,6 @@ class Security::Price::ImportWindowsTest < ActiveSupport::TestCase
     assert_equal sell_date, Security::Price::ImportWindows.new(account).to_h.fetch(security.id).end_date
   end
 
-  test "recognizes a buy after a closed provider snapshot" do
-    family = Family.create!(name: "Smith", currency: "USD")
-    account = family.accounts.create!(name: "Brokerage", currency: "USD", balance: 0, accountable: Investment.new)
-    security = Security.create!(ticker: "LINKED", exchange_operating_mic: "XNAS")
-    provider_item = family.coinstats_items.create!(name: "CoinStats", api_key: "test-key")
-    provider_account = provider_item.coinstats_accounts.create!(name: "Provider", currency: "USD")
-    account_provider = AccountProvider.create!(account: account, provider: provider_account)
-    first_held_date = 20.days.ago.to_date
-    sold_date = 10.days.ago.to_date
-
-    account.holdings.create!(security: security, date: first_held_date, qty: 1, price: 100, amount: 100,
-                             currency: "USD", account_provider: account_provider)
-    account.holdings.create!(security: security, date: sold_date, qty: 0, price: 110, amount: 0,
-                             currency: "USD", account_provider: account_provider)
-    account.holdings.create!(security: security, date: Date.current, qty: 0, price: 110, amount: 0, currency: "USD")
-
-    account.entries.create!(name: "Buy", date: 2.days.ago.to_date, amount: 120, currency: "USD",
-                            entryable: Trade.new(security: security, qty: 1, price: 120, currency: "USD", investment_activity_label: "Buy"))
-
-    window = Security::Price::ImportWindows.new(account).to_h.fetch(security.id)
-
-    assert_equal first_held_date, window.start_date
-    assert_equal Date.current, window.end_date
-  end
   # Editing the closing trade reopens the position before holdings are
   # rebuilt. The edit changes no buy, so only the trade's own update time shows it.
   test "an edited closing trade reopens the position before holdings are rematerialized" do

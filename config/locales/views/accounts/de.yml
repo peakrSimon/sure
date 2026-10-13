@@ -3,9 +3,6 @@ de:
   accounts:
     account:
       edit: Bearbeiten
-      link_lunchflow: Mit Lunch Flow verknüpfen
-      link_provider: Mit Provider verknüpfen
-      unlink_provider: Von Provider trennen
       troubleshoot: Fehlerbehebung
       enable: Konto aktivieren
       disable: Konto deaktivieren
@@ -13,7 +10,6 @@ de:
       remove_default: Standard aufheben
       default_label: Standard
       delete: Konto löschen
-      change_simplefin_account: SimpleFIN-Konto wechseln
       complete_setup: Setup abschließen
       exclude_from_reports: Aus allen Berichten ausschließen
       excluded_from_reports_indicator: Nicht in Berichten
@@ -27,7 +23,6 @@ de:
       depository_only: Nur Bank- und Kreditkartenkonten können als Standard festgelegt werden.
     destroy:
       success: "%{type}-Konto zur Löschung vorgemerkt"
-      cannot_delete_linked: Ein verknüpftes Konto lässt sich nicht löschen. Trenn es zuerst.
       failed: Löschen fehlgeschlagen. Versuch es später noch einmal.
     empty:
       empty_message: Füge ein Konto über eine Verbindung, einen Import oder manuell hinzu
@@ -45,8 +40,6 @@ de:
       institution_domain_placeholder: "z. B. chase.com"
       notes_label: Notizen
       notes_placeholder: Zusätzliche Informationen wie Kontonummern, Sort codes, IBAN, Routing-Nummern usw.
-      enable_category_matcher_hint: Ist die Option an, wird die vom Anbieter vorgeschlagene Kategorie auf importierte Transaktionen angewendet. Schalte sie aus, damit neue Transaktionen ohne Kategorie bleiben.
-      enable_category_matcher_label: Kategoriezuordnung aktivieren
       exclude_from_reports: Aus allen Berichten ausschließen
     index:
       accounts: Konten
@@ -62,10 +55,6 @@ de:
       method_selector:
         connected_entry: Konto verknüpfen
         connected_entry_eu: EU-Konto verknüpfen
-        link_with_provider: "Mit %{provider} verknüpfen"
-        lunchflow_entry: Lunch-Flow-Konto verknüpfen
-        manual_entry: Kontostand manuell eingeben
-        title: Wie möchtest du es hinzufügen
       title: Was möchtest du hinzufügen
       container:
         close: Schließen
@@ -163,25 +152,6 @@ de:
       tax_deferred: Beiträge abzugsfähig, Besteuerung bei Auszahlung
       tax_exempt: Beiträge nach Steuer, Gewinne nicht besteuert
       tax_advantaged: Besondere Steuervorteile unter Bedingungen
-    confirm_unlink:
-      title: Konto vom Provider trennen?
-      description_html: Du bist dabei, <strong>%{account_name}</strong> von <strong>%{provider_name}</strong> zu trennen. Das Konto wird danach manuell geführt.
-      warning_title: Was das bedeutet
-      warning_no_sync: Das Konto wird nicht mehr automatisch mit dem Provider synchronisiert
-      warning_manual_updates: Du musst Buchungen und Salden selbst pflegen
-      warning_transactions_kept: Bestehende Buchungen und Salden bleiben erhalten
-      warning_can_delete: Nach dem Trennen kannst du das Konto bei Bedarf löschen
-      confirm_button: Bestätigen und trennen
-    unlink:
-      success: "Konto erfolgreich getrennt. Es ist jetzt ein manuelles Konto."
-      not_linked: "Konto ist mit keinem Provider verknüpft"
-      error: "Konto konnte nicht getrennt werden: %{error}"
-      generic_error: Ein unerwarteter Fehler ist aufgetreten. Versuch es noch einmal.
-    select_provider:
-      title: Provider zum Verknüpfen auswählen
-      description: Wähle den Anbieter, mit dem %{account_name} verknüpft werden soll
-      already_linked: "Konto ist bereits mit einem Provider verknüpft"
-      no_providers: "Derzeit sind keine Provider konfiguriert"
     not_authorized: Du darfst dieses Konto nicht verwalten
     types_plural:
       credit_card: Kreditkarten

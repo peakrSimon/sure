@@ -15,7 +15,6 @@ class Holding < ApplicationRecord
 
   belongs_to :account
   belongs_to :security
-  belongs_to :account_provider, optional: true
   belongs_to :provider_security, class_name: "Security", optional: true
 
   validates :qty, :currency, :date, :price, :amount, presence: true

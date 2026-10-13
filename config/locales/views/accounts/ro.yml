@@ -2,7 +2,6 @@
 ro:
   accounts:
     account:
-      link_lunchflow: Conectare cu Lunch Flow
       troubleshoot: Depanare
     chart:
       data_not_available: Date indisponibile pentru perioada selectată
@@ -29,10 +28,6 @@ ro:
       method_selector:
         connected_entry: Conectează cont
         connected_entry_eu: Conectează cont UE
-        link_with_provider: "Conectează cu %{provider}"
-        lunchflow_entry: Conectează cont Lunch Flow
-        manual_entry: Introdu soldul contului
-        title: Cum dorești să adaugi?
       title: Ce dorești să adaugi?
     show:
       activity:

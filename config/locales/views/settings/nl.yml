@@ -141,7 +141,6 @@ nl:
       transactions_section_title: Transacties
       whats_new_label: Wat is nieuw
       api_keys_label: API Key
-      bank_sync_label: Bank Sync
     settings_nav_link_large:
       next: Volgende
       previous: Terug

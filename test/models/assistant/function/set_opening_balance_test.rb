@@ -93,12 +93,6 @@ class Assistant::Function::SetOpeningBalanceTest < ActiveSupport::TestCase
     assert_equal 500, @account.opening_anchor_balance
   end
 
-  test "refuses accounts synced from a provider" do
-    result = @function.call("account_id" => accounts(:connected).id, "balance" => 0)
-
-    assert_equal "linked_account", result[:error]
-  end
-
   test "refuses accounts the user can only read, and other families' accounts" do
     # family_member has a read-only share of the credit card
     result = Assistant::Function::SetOpeningBalance.new(users(:family_member)).call("account_id" => accounts(:credit_card).id, "balance" => 0)

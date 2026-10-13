@@ -140,7 +140,6 @@ class AccountsTest < ApplicationSystemTestCase
 
     def assert_account_created(accountable_type, &block)
       click_link Accountable.from_type(accountable_type).singular_display_name
-      click_link "Enter account balance" if accountable_type.in?(%w[Depository Investment Crypto Loan CreditCard])
 
       account_name = "[system test] #{accountable_type} Account"
       institution_name = "[system test] Institution"

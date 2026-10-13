@@ -45,7 +45,6 @@ tr:
       transfer: Transfer
     trend_change:
       no_change: değişiklik yok
-    require_connector_owner: Yalnızca kendi eklediğiniz bağlantıları yönetebilirsiniz
     sidekiq_health_banner:
       title: Bazı veriler güncel olmayabilir
       body: Arka plan işleri işlenmiyor; bu nedenle bakiyeler, net değer ve hesap senkronizasyonları güncel olmayabilir veya eksik olabilir.

@@ -1128,56 +1128,6 @@ end
     end
   end
 
-  test "new preloads transaction form option data" do
-    family = families(:empty)
-    user = users(:empty)
-    sign_in user
-
-    manual_account_ids = []
-    4.times do |idx|
-      account = family.accounts.create!(
-        name: "Manual Account #{idx}",
-        balance: 0,
-        currency: "USD",
-        accountable: Depository.new
-      )
-      assert Account.manual.active.exists?(id: account.id), "Account should be included in the manual active scope"
-      manual_account_ids << account.id
-      family.categories.create!(
-        name: "Category #{idx}",
-        color: "#000000",
-        lucide_icon: "shapes"
-      )
-      family.merchants.create!(name: "Merchant #{idx}")
-      family.tags.create!(name: "Tag #{idx}")
-    end
-
-    inaccessible_account = families(:dylan_family).accounts.create!(
-      name: "Other Family Account",
-      balance: 0,
-      currency: "EUR",
-      accountable: Depository.new
-    )
-
-    queries = capture_sql_queries { get new_transaction_url }
-
-    assert_response :success
-    assert_select "input[name='entry[account_id]']"
-    assert_select "input[name='entry[entryable_attributes][category_id]']"
-    assert_select "input[name='entry[entryable_attributes][merchant_id]']"
-    assert_select "form[data-transaction-form-account-currencies-value]" do |forms|
-      account_currencies = JSON.parse(forms.first["data-transaction-form-account-currencies-value"])
-      manual_account_ids.each do |account_id|
-        assert_equal "USD", account_currencies[account_id.to_s]
-      end
-      assert_nil account_currencies[inaccessible_account.id.to_s]
-    end
-
-    assert_empty queries.grep(/FROM "account_providers" WHERE "account_providers"\."account_id" =/)
-    assert_operator queries.grep(/FROM "active_storage_attachments" WHERE "active_storage_attachments"\."record_id" =/).size, :<=, 1
-    assert_operator queries.grep(/SELECT "categories"\.\* FROM "categories" WHERE "categories"\."family_id" =/).size, :<=, 1
-  end
-
   test "unlock clears import_locked flag" do
     family = families(:empty)
     sign_in users(:empty)
@@ -1600,7 +1550,7 @@ end
     # Recurring detection copies transaction.merchant_id, which can point at a
     # shared ProviderMerchant (not just a family-owned FamilyMerchant) -- e.g.
     # ProviderMerchant::Enhancer updates these after the recurring row exists.
-    provider_merchant = ProviderMerchant.create!(name: "Provider Merchant Original", source: "enable_banking")
+    provider_merchant = ProviderMerchant.create!(name: "Provider Merchant Original", source: "synth")
     recurring = recurring_transactions(:netflix_subscription)
     recurring.update!(merchant: provider_merchant, name: nil)
 
@@ -1811,6 +1761,55 @@ end
     assert_select "button#category_id_trigger[disabled]", text: /#{categories(:income).name}/
     assert_select "input[type=hidden][name='entry[entryable_attributes][category_id]'][disabled]"
     assert_match I18n.t("transactions.show.category_set_on_outflow"), response.body
+  end
+
+  test "new preloads transaction form option data" do
+    family = families(:empty)
+    user = users(:empty)
+    sign_in user
+
+    manual_account_ids = []
+    4.times do |idx|
+      account = family.accounts.create!(
+        name: "Manual Account #{idx}",
+        balance: 0,
+        currency: "USD",
+        accountable: Depository.new
+      )
+      assert Account.manual.active.exists?(id: account.id), "Account should be included in the manual active scope"
+      manual_account_ids << account.id
+      family.categories.create!(
+        name: "Category #{idx}",
+        color: "#000000",
+        lucide_icon: "shapes"
+      )
+      family.merchants.create!(name: "Merchant #{idx}")
+      family.tags.create!(name: "Tag #{idx}")
+    end
+
+    inaccessible_account = families(:dylan_family).accounts.create!(
+      name: "Other Family Account",
+      balance: 0,
+      currency: "EUR",
+      accountable: Depository.new
+    )
+
+    queries = capture_sql_queries { get new_transaction_url }
+
+    assert_response :success
+    assert_select "input[name='entry[account_id]']"
+    assert_select "input[name='entry[entryable_attributes][category_id]']"
+    assert_select "input[name='entry[entryable_attributes][merchant_id]']"
+    assert_select "form[data-transaction-form-account-currencies-value]" do |forms|
+      account_currencies = JSON.parse(forms.first["data-transaction-form-account-currencies-value"])
+      manual_account_ids.each do |account_id|
+        assert_equal "USD", account_currencies[account_id.to_s]
+      end
+      assert_nil account_currencies[inaccessible_account.id.to_s]
+    end
+
+    assert_operator queries.grep(/FROM "active_storage_attachments" WHERE "active_storage_attachments"\."record_id" =/).size, :<=, 1
+    assert_operator queries.grep(/SELECT "categories"\.\* FROM "categories" WHERE "categories"\."family_id" =/).size, :<=, 1
   end
 
   private

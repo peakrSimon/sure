@@ -2,9 +2,6 @@
 pt-BR:
   accounts:
     account:
-      link_lunchflow: Vincular ao Lunch Flow
-      link_provider: Vincular ao provedor
-      unlink_provider: Desvincular do provedor
       troubleshoot: Solucionar problemas
     chart:
       data_not_available: Dados não disponíveis para o período selecionado
@@ -12,7 +9,6 @@ pt-BR:
       success: "Conta %{type} criada"
     destroy:
       success: "Conta %{type} agendada para exclusão"
-      cannot_delete_linked: "Não é possível excluir uma conta vinculada. Por favor, desvincule-a primeiro."
     empty:
       empty_message: Adicione uma conta via conexão, importação ou inserção manual.
       new_account: Nova conta
@@ -34,10 +30,6 @@ pt-BR:
       method_selector:
         connected_entry: Vincular conta
         connected_entry_eu: Vincular conta EU
-        link_with_provider: "Vincular com %{provider}"
-        lunchflow_entry: Vincular conta do Lunch Flow
-        manual_entry: Inserir saldo da conta
-        title: Como você gostaria de adicionar?
       title: O que você gostaria de adicionar?
     show:
       activity:
@@ -91,26 +83,6 @@ pt-BR:
       credit_card: Cartão de Crédito
       loan: Empréstimo
       other_liability: Outro Passivo
-    confirm_unlink:
-      title: Desvincular conta do provedor?
-      description_html: "Você está prestes a desvincular <strong>%{account_name}</strong> de <strong>%{provider_name}</strong>. Isso a converterá em uma conta manual."
-      warning_title: O que isso significa
-      warning_no_sync: A conta não sincronizará mais automaticamente com seu banco
-      warning_manual_updates: Você precisará adicionar transações e atualizar saldos manualmente
-      warning_transactions_kept: Todas as transações e saldos existentes serão preservados
-      warning_can_delete: Após desvincular, você poderá excluir a conta, se necessário
-      confirm_button: Confirmar e desvincular
-    unlink:
-      success: "Conta desvinculada com sucesso. Agora é uma conta manual."
-      not_linked: "A conta não está vinculada a um provedor"
-      error: "Falha ao desvincular conta: %{error}"
-      generic_error: "Ocorreu um erro inesperado. Por favor, tente novamente."
-    select_provider:
-      title: Selecione um provedor para vincular
-      description: "Escolha qual provedor você deseja usar para vincular %{account_name}"
-      already_linked: "A conta já está vinculada a um provedor"
-      no_providers: "Nenhum provedor configurado no momento"
-  
   email_confirmations:
     new:
       invalid_token: Link de confirmação inválido ou expirado.

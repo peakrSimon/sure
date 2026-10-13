@@ -6,7 +6,7 @@ is the reference implementation.
 
 If the provider you are adding produces prose — chat replies, summaries, a
 merchant's website URL — it is an LLM provider, not a classification provider.
-Read [provider sync guidance](providers.md) and `Provider::LlmConcept` instead.
+Read [provider guidance](providers.md) and `Provider::LlmConcept` instead.
 
 ## Why this is separate from `:llm`
 
@@ -22,7 +22,7 @@ live under their own registry concept:
 
 ```ruby
 # app/models/provider/registry.rb
-CONCEPTS = %i[exchange_rates securities llm property_valuations classification]
+CONCEPTS = %i[exchange_rates securities llm classification]
 
 when :classification
   %i[jev]

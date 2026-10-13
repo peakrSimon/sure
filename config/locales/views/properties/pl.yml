@@ -14,9 +14,6 @@ pl:
       state_region_label: Województwo/region
       state_region_placeholder: mazowieckie
       title: Wprowadź nieruchomość ręcznie
-    avm_providers:
-      realie: Realie
-      rentcast: RentCast
     balances:
       market_value_label: Szacowana wartość rynkowa
       market_value_tooltip: Szacowana wartość rynkowa Twojej nieruchomości. Tę liczbę
@@ -51,30 +48,11 @@ pl:
       overview: Przegląd
       value: Wartość
     new:
-      avm_description: Podaj nazwę nieruchomości i jej adres. %{provider} wyszuka
-        dla Ciebie szczegóły nieruchomości i szacowaną wartość rynkową.
-      avm_option: Dodaj przez %{provider}
-      avm_preview_back: Wstecz
-      avm_preview_confirm: Dodaj nieruchomość
-      avm_preview_description: Oto co znalazł %{provider}. Sprawdź szczegóły przed
-        dodaniem nieruchomości - nic jeszcze nie zostało utworzone.
-      avm_preview_no_record: "%{provider} nie znalazł rekordu nieruchomości pod tym
-        adresem, więc pokazana wartość jest szacunkiem opartym na okolicy. Sprawdź
-        adres przed kontynuowaniem."
-      avm_preview_title: Potwierdź szczegóły nieruchomości
-      avm_submit: Wyszukaj nieruchomość
-      avm_title: Dodaj nieruchomość przez %{provider}
-      avm_us_only: "%{provider} obsługuje wyłącznie nieruchomości położone w Stanach
-        Zjednoczonych."
       next: Dalej
       title: Wprowadź dane nieruchomości
     overview:
-      living_area: Powierzchnia użytkowa
-      market_value: Wartość rynkowa
       purchase_price: Cena zakupu
       trend: Trend
-      unknown: Nieznane
-      year_built: Rok budowy
     overview_fields:
       area_label: Powierzchnia (opcjonalnie)
       area_placeholder: '1200'

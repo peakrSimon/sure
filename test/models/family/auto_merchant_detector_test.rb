@@ -162,7 +162,7 @@ class Family::AutoMerchantDetectorTest < ActiveSupport::TestCase
   end
 
   test "still reuses an existing shared provider merchant by website" do
-    known = ProviderMerchant.create!(name: "Known Co", source: "plaid", website_url: "known.example")
+    known = ProviderMerchant.create!(name: "Known Co", source: "synth", website_url: "known.example")
     txn = create_transaction(account: @account, name: "Known Co purchase").transaction
 
     provider_response = provider_success_response([

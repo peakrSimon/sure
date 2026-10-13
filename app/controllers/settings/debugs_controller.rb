@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Settings::DebugsController < Admin::BaseController
-  FILTER_ID_PARAMS = %i[family_id account_id user_id account_provider_id].freeze
+  FILTER_ID_PARAMS = %i[family_id account_id user_id].freeze
 
   def show
     filter_params = debug_filters_params
@@ -14,7 +14,7 @@ class Settings::DebugsController < Admin::BaseController
       [ t("settings.debugs.show.page_title"), nil ]
     ]
 
-    scope = DebugLogEntry.includes(:family, :account, :user, :account_provider).recent
+    scope = DebugLogEntry.includes(:family, :account, :user).recent
     scope = scope.with_category(filter_params[:category])
     scope = scope.with_level(filter_params[:level])
     scope = scope.with_source(filter_params[:source])

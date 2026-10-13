@@ -9,24 +9,18 @@ en:
     api_keys: API Keys
     appearance: Appearance
     appearances: Appearance
-    bank_sync: Bank Sync
-    binance_items: Binance
-    brex_items: Brex
     budget_categories: Budget categories
     budgets: Budgets
     categories: Categories
     categorize: Categorize
     changelog: What's new
     chats: Chats
-    coinbase_items: Coinbase
-    coinstats_items: CoinStats
     credit_cards: Credit cards
     cryptos: Crypto
     dashboard: Dashboard
     debug: Debug
     debugs: Debug
     depositories: Cash accounts
-    enable_banking_items: Enable Banking
     exports: Exports
     family_exports: Exports
     family_merchants: Merchants
@@ -35,32 +29,25 @@ en:
     holdings: Holdings
     home: Home
     hostings: Self-Hosting
-    ibkr_items: Interactive Brokers
     impersonation_sessions: Impersonations
     imports: Imports
-    indexa_capital_items: Indexa Capital
     intro: Intro
     investments: Investments
     invitations: Invitations
     invite_codes: Invite codes
-    kraken_items: Kraken
     llm_usage: LLM Usage
     llm_usages: LLM Usage
     loans: Loans
-    lunchflow_items: Lunch Flow
     mcp: MCP Server
     merchants: Merchants
-    mercury_items: Mercury
     messages: Messages
     mfa: Two-factor authentication
-    monobank_items: Monobank
     oidc_accounts: SSO accounts
     onboardings: Onboarding
     other_assets: Other assets
     other_liabilities: Other liabilities
     payments: Payments
     pending_duplicate_merges: Duplicate review
-    plaid_items: Plaid
     plan: Plan
     preferences: Preferences
     profile: Profile Info
@@ -68,7 +55,6 @@ en:
     properties: Properties
     providers: Providers
     recurring_transactions: Recurring
-    redbark_items: Redbark
     registrations: Sign up
     reports: Reports
     rules: Rules
@@ -76,9 +62,6 @@ en:
     security: Security
     self_hosting: Self-Hosting
     sessions: Sign in
-    simplefin_items: SimpleFIN
-    snaptrade_items: SnapTrade
-    sophtron_items: Sophtron
     splits: Split
     sso_identities: SSO connections
     sso_providers: SSO providers

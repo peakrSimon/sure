@@ -19,7 +19,6 @@ hu:
         save: Mentés
         tags_label: Címkék
         transactions_section: Tranzakciók
-    unknown_name: Ismeretlen tranzakció
     selection_bar:
       duplicate: Duplikálás
       edit: Szerkesztés
@@ -64,7 +63,6 @@ hu:
       transfer: Átutalás
       account_label: Számla
       amount: Összeg
-      category_label: Kategória
       date_label: Dátum
       delete: Törlés
       delete_subtitle: Ez véglegesen törli a tranzakciót, befolyásolja a korábbi egyenlegeidet, és nem vonható vissza.
@@ -79,7 +77,6 @@ hu:
       one_time_description: Az egyszeri tranzakciók bizonyos költségvetési számításokból és jelentésekből kizárásra kerülnek, hogy lássad, mi igazán fontos.
       convert_to_trade_title: Konvertálás értékpapír-ügyletre
       convert_to_trade_description: Konvertáld ezt a tranzakciót Vétel vagy Eladás ügyletté értékpapír-részletekkel a portfólió követéséhez.
-      convert_to_trade_button: Konvertálás ügyletre
       transfer_matcher_description: Kösd össze ezt a tranzakciót a megfelelőjével egy másik számlán.
       pending_duplicate_merger_title: Közzétett tranzakció duplikátuma?
       pending_duplicate_merger_description: Egyesítsd manuálisan ezt a függőben lévő tranzakciót a közzétett verziójával.
@@ -92,15 +89,10 @@ hu:
       note_placeholder: Megjegyzés írása
       overview: Áttekintés
       settings: Beállítások
-      tags_label: Címkék
       tab_transactions: Tranzakciók
       tab_upcoming: Közelgő
       uncategorized: "(kategorizálatlan)"
       additional_details: "További részletek"
-      payee: "Kedvezményezett"
-      description: "Leírás"
-      memo: "Megjegyzés"
-      provider_extras: "Szolgáltatói kiegészítők"
       transfer_or_debt_payment: "Átutalás vagy adósságtörlesztés?"
       open_matcher: "Összevonó megnyitása"
       convert: "Konvertálás"

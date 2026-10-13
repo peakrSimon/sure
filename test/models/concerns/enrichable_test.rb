@@ -7,7 +7,7 @@ class EnrichableTest < ActiveSupport::TestCase
 
   test "can enrich multiple attributes" do
     assert_difference "DataEnrichment.count", 2 do
-      @enrichable.enrich_attributes({ name: "Updated Checking", balance: 6_000 }, source: "plaid")
+      @enrichable.enrich_attributes({ name: "Updated Checking", balance: 6_000 }, source: "synth")
     end
 
     assert_equal "Updated Checking", @enrichable.name
@@ -54,7 +54,7 @@ class EnrichableTest < ActiveSupport::TestCase
     @enrichable.lock_attr!(:name)
 
     assert_no_difference "DataEnrichment.count" do
-      @enrichable.enrich_attribute(:name, "Should Not Change", source: "plaid")
+      @enrichable.enrich_attribute(:name, "Should Not Change", source: "synth")
     end
 
     assert_equal original_name, @enrichable.reload.name

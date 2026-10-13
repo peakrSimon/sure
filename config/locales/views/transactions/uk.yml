@@ -18,7 +18,6 @@ uk:
         save: Зберегти
         tags_label: Теги
         transactions_section: Транзакції
-    unknown_name: Невідома транзакція
     selection_bar:
       duplicate: Дублікат
       edit: Редагувати
@@ -72,7 +71,6 @@ uk:
       transfer: Переказ
       account_label: Рахунок
       amount: Сума
-      category_label: Категорія
       date_label: Дата
       delete: Видалити
       delete_subtitle: Це назавжди видаляє транзакцію, впливає на ваші історичні баланси та не може бути скасовано.
@@ -87,7 +85,6 @@ uk:
       one_time_description: Одноразові транзакції будуть виключені з певних розрахунків бюджету та звітів, щоб допомогти вам побачити, що справді важливо.
       convert_to_trade_title: Перетворити на угоду з цінними паперами
       convert_to_trade_description: Перетворіть цю транзакцію на угоду купівлі або продажу з даними цінного папера для відстеження портфеля.
-      convert_to_trade_button: Перетворити на угоду
       transfer_matcher_description: Підключіть цю транзакцію до її відповідника в іншому рахунку.
       pending_duplicate_merger_title: Дублікат проведеної транзакції?
       pending_duplicate_merger_description: Вручну об'єднайте цю очікувану транзакцію з її проведеною версією.
@@ -100,15 +97,10 @@ uk:
       note_placeholder: Введіть нотатку
       overview: Огляд
       settings: Налаштування
-      tags_label: Теги
       tab_transactions: Транзакції
       tab_upcoming: Майбутні
       uncategorized: "(без категорії)"
       additional_details: "Додаткові відомості"
-      payee: "Одержувач"
-      description: "Опис"
-      memo: "Примітка"
-      provider_extras: "Додаткові відомості від постачальника"
       transfer_or_debt_payment: "Переказ або сплата боргу?"
       open_matcher: "Відкрити зіставлення"
       convert: "Перетворити"

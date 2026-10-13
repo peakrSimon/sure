@@ -19,7 +19,6 @@ zh-TW:
         save: 儲存
         tags_label: 標籤
         transactions_section: 交易紀錄
-    unknown_name: 未知交易
     selection_bar:
       duplicate: 複製
       edit: 編輯
@@ -64,7 +63,6 @@ zh-TW:
       transfer: 轉帳
       account_label: 帳戶
       amount: 金額
-      category_label: 分類
       date_label: 日期
       delete: 刪除
       delete_subtitle: 這將永久刪除此筆交易，並影響您的歷史餘額，此操作無法復原。
@@ -79,7 +77,6 @@ zh-TW:
       one_time_description: 一次性交易會從部分預算計算與報表中排除，讓您更清楚看見真正重要的部分。
       convert_to_trade_title: 轉換為證券交易
       convert_to_trade_description: 把這筆交易轉換成帶有證券資訊的買入或賣出交易，以便追蹤投資組合。
-      convert_to_trade_button: 轉換為證券交易
       transfer_matcher_description: 把這筆交易和另一個帳戶中對應的那一筆連結起來。
       pending_duplicate_merger_title: 與已入帳交易重複？
       pending_duplicate_merger_description: 手動把這筆待處理交易和已入帳的那一筆合併。
@@ -92,15 +89,10 @@ zh-TW:
       note_placeholder: 輸入備註
       overview: 概覽
       settings: 設定
-      tags_label: 標籤
       tab_transactions: 交易紀錄
       tab_upcoming: 即將發生
       uncategorized: （未分類）
       additional_details: 額外詳細資訊
-      payee: 收款人
-      description: 描述
-      memo: 備註
-      provider_extras: 供應商額外資訊
       transfer_or_debt_payment: 轉帳或債務還款？
       open_matcher: 開啟配對工具
       convert: 轉換

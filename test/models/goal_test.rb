@@ -381,24 +381,6 @@ class GoalTest < ActiveSupport::TestCase
     assert_equal :reached, @goal.display_status
   end
 
-  test "any_connected_account? reflects plaid_account presence" do
-    assert @goal.any_connected_account?
-    only_manual = goals(:emergency_fund)
-    only_manual.goal_accounts.where(account_id: @connected.id).destroy_all
-    assert_not only_manual.reload.any_connected_account?
-  end
-
-  test "pledge_action_label_key flips on manual-only goals" do
-    assert_equal "goals.show.pledge_just_transferred", @goal.pledge_action_label_key
-    @goal.goal_accounts.where(account_id: @connected.id).destroy_all
-    # After removing the only connected account, the goal is manual-only;
-    # the copy must flip to "pledge_just_saved" so users aren't told to
-    # wait for a sync that won't run. Refetch to exercise the real
-    # request lifecycle rather than poking a memo on the same instance.
-    reloaded = Goal.find(@goal.id)
-    assert_equal "goals.show.pledge_just_saved", reloaded.pledge_action_label_key
-  end
-
   test "explicit allocation backs only the earmarked slice" do
     account = Account.create!(family: @family, accountable: Depository.new, name: "Split Savings", currency: "USD", balance: 5_000)
     goal = @family.goals.create!(name: "Earmarked", target_amount: 10_000, currency: "USD") do |g|
@@ -1027,7 +1009,6 @@ class GoalTest < ActiveSupport::TestCase
                     "a saved point outran the history it was scaled from"
   end
 
-
   # AASM runs an event's `after` hook on the non-bang form too, which does not
   # save. The completion snapshot used to be written there, so `complete` left
   # the row `active` in the database carrying a frozen amount and a completion
@@ -1148,7 +1129,6 @@ class GoalTest < ActiveSupport::TestCase
     assert_equal frozen, goal.reload.completed_amount
   end
 
-
   # A reserve holds a level: there is no finish line to project toward and no
   # target to have "hit". It does not reach the projection panel today, but
   # this method reads as the single source of truth for that subtitle.
@@ -1226,7 +1206,6 @@ class GoalTest < ActiveSupport::TestCase
     assert_equal 3_000, goal.reload.target_amount.to_d
   end
 
-
   # The ring is drawn from `progress_percent`, which counts money held plus
   # money already spent on the goal. The headline figure showed only the first
   # half, so a goal that had spent part of its savings sat at a 100% ring
@@ -1302,7 +1281,6 @@ class GoalTest < ActiveSupport::TestCase
         g.goal_accounts.build(account: account)
       end
     end
-
 
     # 5,000 saved, 2,000 of it since spent on the thing itself.
     def spent_goal

@@ -91,22 +91,18 @@ excluded from income/expense reporting.
 
 ## Ingestion and background work
 
-Provider connections such as [PlaidItem](../../app/models/plaid_item.rb) hold
-connection metadata and provider account payloads; processors normalize them into
-internal accounts and entries through [Account::ProviderImportAdapter](../../app/models/account/provider_import_adapter.rb).
-[AccountProvider](../../app/models/account_provider.rb) connects accounts to
-provider records. [Import](../../app/models/import.rb) supports manual import
-sessions, including CSV mapping and transformations. Plaid is one of many supported
-provider integrations.
+Accounts are maintained manually: there are no bank or brokerage integrations.
+[Import](../../app/models/import.rb) supports manual import sessions, including
+CSV mapping and transformations, and PDF statement imports;
+[Account::ProviderImportAdapter](../../app/models/account/provider_import_adapter.rb)
+finds already-recorded transactions so imports do not create duplicates.
 
 [Syncable](../../app/models/concerns/syncable.rb) schedules background syncs and
 [Sync](../../app/models/sync.rb) records their state, hierarchy and errors.
 [Account::Syncer](../../app/models/account/syncer.rb) imports market data,
-materializes history (reverse for linked accounts, forward for manual accounts),
-applies provider balance overrides and matches transfers after sync.
-[Family::Syncer](../../app/models/family/syncer.rb) schedules all eligible Syncable
-`*_items` associations plus manual accounts, then matches transfers and applies
-active rules. Entry-changing workflows call `Entry#sync_account_later`; inspect
+materializes history forward from the opening balance and matches transfers
+after sync. [Family::Syncer](../../app/models/family/syncer.rb) schedules every
+account, then matches transfers and applies active rules. Entry-changing workflows call `Entry#sync_account_later`; inspect
 the calling workflow rather than assuming every save schedules a full sync.
 
 [AutoSync](../../app/controllers/concerns/auto_sync.rb) can request a family sync

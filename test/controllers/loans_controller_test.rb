@@ -788,9 +788,6 @@ class LoansControllerTest < ActionDispatch::IntegrationTest
     assert_equal rate_before, @account.loan.reload.interest_rate
   end
 
-  # CodeRabbit on we-promise/sure#3473: `loans/new` renders the method
-  # selector when `step=method_select`, which reads `@provider_configs`; the
-  # rescue path must set it up as `new` does.
   test "a rejected create with the method-select step still renders" do
     post loans_path(step: "method_select"), params: { account: {
       name: "Bad Loan", balance: 50_000, currency: "USD", accountable_type: "Loan",

@@ -203,7 +203,6 @@ class Loan::VariableRateScheduleTest < ActiveSupport::TestCase
       "a recorded start_date outranks the first valuation"
   end
 
-
   # `periodic_payment` used to re-derive the annuity from the loan's base rate.
   # A change effective ON the first payment date already sizes that payment, so
   # the card quoted a rate for a payment the borrower will never make.
@@ -240,7 +239,6 @@ class Loan::VariableRateScheduleTest < ActiveSupport::TestCase
     assert_not same_rate.amortization_schedule.re_amortising?, "the same rate again is not a resize"
     assert moved.amortization_schedule.re_amortising?
   end
-
 
   # `first_valuation_amount` is decimal(19,4) against two-decimal USD, so an
   # opening balance can carry sub-unit precision the schedule cannot represent.

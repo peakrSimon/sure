@@ -32,7 +32,7 @@
           <%= render DS::Link.new(
             text: t("accounts.sidebar.new_asset"),
             variant: "ghost",
-            href: new_account_path(step: "method_select", classification: "asset"),
+            href: new_account_path(classification: "asset"),
             icon: "plus",
             frame: :modal,
             class: "flex-1 justify-start"
@@ -60,7 +60,7 @@
           <%= render DS::Link.new(
               text: t("accounts.sidebar.new_debt"),
               variant: "ghost",
-              href: new_account_path(step: "method_select", classification: "liability"),
+              href: new_account_path(classification: "liability"),
               icon: "plus",
               frame: :modal,
               class: "flex-1 justify-start"
@@ -88,7 +88,7 @@
           <%= render DS::Link.new(
               text: t("accounts.sidebar.new_account"),
               variant: "ghost",
-              href: new_account_path(step: "method_select"),
+              href: new_account_path,
               icon: "plus",
               frame: :modal,
               class: "flex-1 justify-start"

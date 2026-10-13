@@ -22,7 +22,6 @@ zh-CN:
       automatic_description: 自动识别也会在以下情况后运行：
       triggers:
         - CSV 导入完成（交易、证券交易、账户等）
-        - 任一提供商同步完成（Plaid、SimpleFIN 等）
     identified: 已识别 %{count} 个循环交易模式
     cleaned_up: 已清理 %{count} 个过期循环交易
     marked_inactive: 循环交易已标记为停用

@@ -132,25 +132,6 @@ class I18nTest < ActiveSupport::TestCase
     assert_empty missing, "bills.index.notices_heading is missing for: #{missing.join(", ")}"
   end
 
-  def test_trade_republic_activity_labels_exist_for_each_locale
-    required_labels = %w[
-      contribution withdrawal interest dividend card_payment cash_withdrawal
-      card_fee card_refund tax_refund round_up
-    ]
-
-    Dir[File.expand_path("../config/locales/views/trade_republic_items/*.yml", __dir__)].sort.each do |file|
-      locale = File.basename(file, ".yml")
-      translations = YAML.load_file(file, aliases: true).fetch(locale)
-      labels = translations.dig("trade_republic_items", "activities", "labels")
-
-      assert labels.is_a?(Hash), "#{file} must define trade_republic_items.activities.labels"
-      assert_empty required_labels - labels.keys,
-                   "#{file} is missing Trade Republic activity labels"
-      assert translations.dig("trade_republic_items", "trade_republic_item", "data_quality", "pending_trade_details").present?,
-             "#{file} is missing trade_republic_item.data_quality.pending_trade_details"
-    end
-  end
-
   private
     # { "months_saved.one" => "...", ... } for UI.account.chart.loan in one locale.
     def loan_chart_leaves(locale)

@@ -22,7 +22,6 @@ hu:
       automatic_description: "Az automatikus azonosítás ezután is lefut:"
       triggers:
         - CSV importálás befejeztével (tranzakciók, ügyletek, számlák stb.)
-        - Bármely szolgáltatói szinkronizálás befejeztével (Plaid, SimpleFIN stb.)
     identified: "%{count} ismétlődő tranzakciós minta azonosítva"
     cleaned_up: "%{count} elavult ismétlődő tranzakció törölve"
     marked_inactive: Az ismétlődő tranzakció inaktívvá jelölve

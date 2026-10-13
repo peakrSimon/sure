@@ -13,7 +13,6 @@ class Family::FinancialDataReset
     import_mappings
     accounts
     account_shares
-    account_providers
     entries
     transactions
     transfers
@@ -34,48 +33,12 @@ class Family::FinancialDataReset
     taggings
     merchants
     family_merchant_associations
-    provider_items
     syncs
     active_storage_attachments
   ].freeze
-  STATUS_COUNT_KEYS = (COUNT_KEYS - %i[syncs]) + %i[plaid_items]
-  PROVIDER_ITEM_ASSOCIATIONS = %i[
-    financekit_items
-    binance_items
-    brex_items
-    coinbase_items
-    coinstats_items
-    enable_banking_items
-    ibkr_items
-    indexa_capital_items
-    kraken_items
-    questrade_items
-    lunchflow_items
-    redbark_items
-    mercury_items
-    onchain_wallet_items
-    plaid_items
-    simplefin_items
-    snaptrade_items
-    sophtron_items
-    up_items
-    monobank_items
-    fio_items
-  ].freeze
+  STATUS_COUNT_KEYS = (COUNT_KEYS - %i[syncs]).freeze
 
   Result = Struct.new(:user, :family, :dry_run, :before_counts, :deleted_counts, :after_counts, keyword_init: true)
-
-  class << self
-    def provider_item_associations
-      PROVIDER_ITEM_ASSOCIATIONS.select do |association_name|
-        association = Family.reflect_on_association(association_name)
-
-        association&.klass&.included_modules&.include?(Syncable)
-      rescue NameError
-        false
-      end
-    end
-  end
 
   attr_reader :user, :family
 
@@ -153,15 +116,12 @@ class Family::FinancialDataReset
       scope(:holdings).destroy_all
       scope(:balances).destroy_all
       scope(:account_shares).destroy_all
-      scope(:account_providers).destroy_all
       scope(:recurring_transactions).destroy_all
       scope(:rules).destroy_all
       scope(:budgets).destroy_all
       scope(:categories).destroy_all
       scope(:tags).destroy_all
       scope(:merchants).destroy_all
-      delete_provider_items!
-      family.financekit_account_lineages.destroy_all
       scope(:accounts).destroy_all
     end
 
@@ -187,59 +147,14 @@ class Family::FinancialDataReset
         .find_each(&:purge)
     end
 
-    def delete_provider_items!
-      provider_item_associations.each do |association|
-        reflection = family.class.reflect_on_association(association)
-        item_class = reflection&.klass
-        next unless item_class
-
-        item_scope = provider_item_scope(association)
-        item_ids = item_scope.select(:id)
-        Sync.for_family(family).where(syncable_type: item_class.name, syncable_id: item_ids).delete_all
-
-        item_class.reflect_on_all_associations(:has_many).each do |reflection|
-          next if reflection.options[:through].present?
-          next unless reflection.name.to_s.end_with?("_accounts")
-
-          provider_accounts_scope = reflection.klass.where(reflection.foreign_key => item_ids)
-          provider_account_ids = provider_accounts_scope.select(:id)
-          legacy_account_column = legacy_account_provider_column(reflection.klass)
-          if legacy_account_column
-            scope(:accounts)
-              .where(legacy_account_column => provider_account_ids)
-              .update_all(legacy_account_column => nil)
-          end
-          AccountProvider.where(
-            account_id: account_ids,
-            provider_type: reflection.klass.name,
-            provider_id: provider_account_ids
-          ).delete_all
-          provider_accounts_scope.delete_all
-        end
-
-        item_scope.destroy_all
-      end
-    end
-
     def counts
       COUNT_KEYS.index_with do |key|
-        case key
-        when :provider_items
-          provider_item_associations.sum { |association| provider_item_scope(association).count }
-        when :active_storage_attachments
-          active_storage_attachments_count
-        else
-          scope(key).count
-        end
+        key == :active_storage_attachments ? active_storage_attachments_count : scope(key).count
       end
     end
 
     def deleted_counts(before_counts, after_counts)
       COUNT_KEYS.index_with { |key| before_counts.fetch(key, 0) - after_counts.fetch(key, 0) }
-    end
-
-    def provider_item_associations
-      self.class.provider_item_associations.select { |association| family.respond_to?(association) }
     end
 
     def scope(key)
@@ -271,7 +186,6 @@ class Family::FinancialDataReset
           import_mappings: Import::Mapping.where(import_id: import_ids),
           accounts: account_scope,
           account_shares: AccountShare.where(account_id: account_ids),
-          account_providers: AccountProvider.where(account_id: account_ids),
           entries: Entry.where(account_id: account_ids),
           transactions: transaction_scope,
           transfers: Transfer.where(inflow_transaction_id: transaction_ids)
@@ -308,37 +222,16 @@ class Family::FinancialDataReset
     end
 
     def active_storage_attachment_scopes
-      scopes = [
+      [
         attachment_scope(Account, account_ids),
         attachment_scope(AccountStatement, scope(:account_statements).select(:id)),
         attachment_scope(FamilyExport, scope(:family_exports).select(:id)),
         attachment_scope(Import, scope(:imports).select(:id)),
         attachment_scope(Transaction, scope(:transactions).select(:id))
       ]
-
-      provider_item_associations.filter_map do |association|
-        reflection = family.class.reflect_on_association(association)
-        attachment_scope(reflection.klass, provider_item_scope(association).select(:id)) if reflection&.klass
-      end + scopes
     end
 
     def attachment_scope(record_class, record_ids)
       ActiveStorage::Attachment.where(record_type: record_class.name, record_id: record_ids)
-    end
-
-    def provider_item_scope(association)
-      item_class = family.class.reflect_on_association(association)&.klass
-      return family.public_send(association).none unless item_class
-
-      if item_class.column_names.include?("family_id")
-        item_class.where(family_id: family.id)
-      else
-        family.public_send(association)
-      end
-    end
-
-    def legacy_account_provider_column(provider_account_class)
-      column_name = "#{provider_account_class.model_name.singular}_id"
-      column_name if Account.column_names.include?(column_name)
     end
 end

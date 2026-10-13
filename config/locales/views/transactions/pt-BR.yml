@@ -25,7 +25,6 @@ pt-BR:
     show:
       account_label: Conta
       amount: Valor
-      category_label: Categoria
       date_label: Data
       delete: Excluir
       delete_subtitle: Isso exclui permanentemente a transação, afeta seus saldos históricos
@@ -43,7 +42,6 @@ pt-BR:
       note_placeholder: Digite uma nota
       overview: Visão geral
       settings: Configurações
-      tags_label: Tags
       uncategorized: "(sem categoria)"
     header:
       edit_categories: Editar categorias

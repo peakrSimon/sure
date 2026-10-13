@@ -56,12 +56,8 @@ it:
       square_meters: "Metri quadrati"
       area_unit_label: "Unità superficie"
     overview:
-      living_area: Superficie
-      market_value: Valore di Mercato
       purchase_price: Prezzo di Acquisto
       trend: Tendenza
-      unknown: Sconosciuto
-      year_built: Anno di Costruzione
     tabs:
       overview:
         living_area: Superficie

@@ -61,16 +61,8 @@ class Sync < ApplicationRecord
     end
 
     def for_family(family, resource_owner: nil)
-      query = where(syncable_type: "Family", syncable_id: family.id)
-      query = query.or(where(syncable_type: "Account", syncable_id: account_syncable_ids(family, resource_owner)))
-
-      family_syncable_associations.each do |association|
-        query = query.or(
-          where(syncable_type: association.klass.name, syncable_id: family.public_send(association.name).select(:id))
-        )
-      end
-
-      query
+      where(syncable_type: "Family", syncable_id: family.id)
+        .or(where(syncable_type: "Account", syncable_id: account_syncable_ids(family, resource_owner)))
     end
 
     def for_syncables(syncables)
@@ -124,10 +116,8 @@ class Sync < ApplicationRecord
       keyed_syncables.index_with { |key| syncing_keys.include?(key) }
     end
 
-    # True iff the family has any pending/syncing Sync — across its own row,
-    # its accounts, and every Syncable provider `*_items` association. Built
-    # on `for_family` so new provider integrations are picked up automatically
-    # via `family_syncable_associations` reflection (no hand-rolled list).
+    # True iff the family has any pending/syncing Sync — across its own row
+    # and its accounts.
     def any_incomplete_for?(family)
       for_family(family).incomplete.exists?
     end
@@ -142,15 +132,6 @@ class Sync < ApplicationRecord
         (resource_owner ? resource_owner.accessible_accounts : family.accounts)
           .where(family_id: family.id)
           .select(:id)
-      end
-
-      def family_syncable_associations
-        Family.reflect_on_all_associations(:has_many).select do |association|
-          association.name.to_s.end_with?("_items") &&
-            association.klass.included_modules.include?(Syncable)
-        rescue NameError
-          false
-        end
       end
   end
 

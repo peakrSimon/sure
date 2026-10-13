@@ -31,23 +31,7 @@ When you arrive at the main dashboard, showing **No accounts yet**, you're all s
 <br />
 <br />
 
-> **Note:** The next sections of this guide cover how to **manually add accounts and transactions** in Sure.<br />
-> If you'd rather connect a data provider, Sure supports many of them, including:
->
-> - [**Plaid**](https://github.com/we-promise/sure/blob/main/docs/hosting/plaid.md) (US and EU)
-> - [**SimpleFIN**](https://beta-bridge.simplefin.org/)
-> - [**Lunch Flow**](https://www.lunchflow.app/)
-> - [**Enable Banking**](https://enablebanking.com/) (beta)
-> - [**Monobank**](https://github.com/we-promise/sure/blob/main/docs/hosting/monobank.md) (Ukrainian cards and jars)
-> - [**Fio banka**](https://github.com/we-promise/sure/blob/main/docs/hosting/fio.md) (Czech bank)
-> - [**Redbark**](https://github.com/we-promise/sure/blob/main/docs/hosting/redbark.md) (Australian banks)
-> - [**Up**](https://up.com.au/) (Australian bank)
-> - [**Akahu**](https://www.akahu.nz/) (New Zealand banks)
-> - [**CoinStats**](https://coinstats.app/) (beta, crypto)
->
-> See **Settings > Bank sync** in your instance for the full list of supported providers and their setup options. Only **admin** users can connect a provider.
->
-> Even if you use an integration, we still recommend reading through this guide to understand **account types** and how they work in Sure.
+> **Note:** This instance has no bank integrations. The next sections of this guide cover how to **manually add accounts and transactions**, which is the only way to keep them up to date. You can also bring in transactions with CSV or PDF statement imports.
 
 
 ## 2. Account Types in Sure

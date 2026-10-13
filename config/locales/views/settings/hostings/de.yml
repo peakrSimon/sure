@@ -29,7 +29,6 @@ de:
           title: Daten-Cache leeren?
           body: Bist du sicher, dass du den Daten-Cache leeren möchtest? Dadurch werden alle Wechselkurse, Wertpapierpreise, Kontostände und andere Daten entfernt. Diese Aktion kann nicht rückgängig gemacht werden.
         ai_assistant: KI-Assistent
-        property_valuation_providers: Anbieter für Immobilienbewertung
       provider_selection:
         title: Anbieterauswahl
         description: Wähle, welcher Dienst für Wechselkurse und Wertpapierpreise verwendet werden soll. Yahoo Finance ist kostenlos und benötigt keinen API-Schlüssel. Twelve Data erfordert einen kostenlosen API-Schlüssel, bietet aber möglicherweise eine bessere Datenabdeckung.
@@ -154,9 +153,6 @@ de:
         auto_sync_description: Wenn aktiviert, werden alle Konten täglich zur angegebenen Zeit automatisch synchronisiert.
         auto_sync_time_label: Synchronisierungszeit (HH:MM)
         auto_sync_time_description: Lege die Tageszeit fest, zu der die automatische Synchronisierung erfolgen soll.
-        include_pending_label: Ausstehende Transaktionen einbeziehen
-        include_pending_description: Wenn aktiviert, werden ausstehende (noch nicht gebuchte) Transaktionen importiert und bei Buchung automatisch abgeglichen. Deaktivieren, wenn deine Bank unzuverlässige Ausstehend-Daten liefert.
-        env_configured_message: Diese Einstellung ist deaktiviert, weil eine Anbieter-Umgebungsvariable (SIMPLEFIN_INCLUDE_PENDING oder PLAID_INCLUDE_PENDING) gesetzt ist. Entferne sie, um diese Einstellung zu aktivieren.
       alpha_vantage_settings:
         description: Trag den API-Key von Alpha Vantage ein. Unterstützt europäische ETFs an der London Stock Exchange, an XETRA und an weiteren Börsen.
         env_configured_message: Über die Umgebungsvariable ALPHA_VANTAGE_API_KEY eingerichtet.
@@ -233,20 +229,6 @@ de:
         provider_label: Aktiver LLM-Anbieter
         provider_openai: OpenAI
         title: KI-Anbieter
-      realie_settings:
-        description: Trag deinen Realie-API-Key ein, um beim Anlegen einer Immobilie US-Objektdaten und Wertschätzungen abzurufen. Der kostenlose Tarif erlaubt 25 Anfragen pro Monat, geteilt zwischen Objektsuchen und täglichen Wertaktualisierungen. In einem Bezahltarif hebst du die Grenze über die Umgebungsvariable REALIE_MAX_REQUESTS_PER_MONTH an.
-        env_configured_message: Über die Umgebungsvariable REALIE_API_KEY eingerichtet.
-        label: API-Key
-        placeholder: Realie-API-Key hier eintragen
-        title: Realie
-        usage: "%{used} von %{limit} Anfragen diesen Monat genutzt"
-      rentcast_settings:
-        description: Trag deinen RentCast-API-Key ein, um beim Anlegen einer Immobilie US-Objektdaten und Wertschätzungen abzurufen. Der kostenlose Tarif erlaubt 50 Anfragen pro Monat, geteilt zwischen Objektsuchen und täglichen Wertaktualisierungen. In einem Bezahltarif hebst du die Grenze über die Umgebungsvariable RENTCAST_MAX_REQUESTS_PER_MONTH an.
-        env_configured_message: Über die Umgebungsvariable RENTCAST_API_KEY eingerichtet.
-        label: API-Key
-        placeholder: RentCast-API-Key hier eintragen
-        title: RentCast
-        usage: "%{used} von %{limit} Anfragen diesen Monat genutzt"
       sync_auto_sync_scheduler!:
         scheduler_sync_failed: Gespeichert, aber der Sync-Zeitplan ließ sich nicht aktualisieren. Versuch es erneut oder sieh in den Server-Logs nach.
       tiingo_settings:

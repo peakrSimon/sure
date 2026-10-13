@@ -283,9 +283,7 @@ fr:
       applied_to_title: Factures réglées par cette transaction
       applied_to_unreviewed: À vérifier
       attachments: Pièces jointes
-      category_label: Catégorie
       convert: Convertir
-      convert_to_trade_button: Convertir en transaction boursière
       convert_to_trade_description: Convertissez cette transaction en une transaction boursière d'achat ou de vente avec les détails du titre pour le suivi du portefeuille.
       convert_to_trade_title: Convertir en transaction boursière
       create_bill: Créer une facture
@@ -293,7 +291,6 @@ fr:
       delete: Supprimer
       delete_subtitle: Cette action supprime définitivement la transaction, affecte vos soldes historiques et ne peut pas être annulée.
       delete_title: Supprimer la transaction
-      description: Descriptif
       details: Détails
       exclude: Exclure
       exclude_description: Les transactions exclues seront retirées des calculs budgétaires et des rapports.
@@ -302,7 +299,6 @@ fr:
       mark_recurring: Marquer comme récurrente
       mark_recurring_subtitle: Suivez cela comme une transaction récurrente. L'écart de montant est automatiquement calculé à partir des 6 derniers mois de transactions similaires.
       mark_recurring_title: Transaction récurrente
-      memo: Mémo
       merchant_label: Marchand
       merge_duplicate: Oui, fusionnez-les
       name_label: Nom
@@ -314,17 +310,14 @@ fr:
       one_time_title: Transaction ponctuelle (%{type})
       open_matcher: Ouvrir le matcheur
       overview: Aperçu
-      payee: Bénéficiaire
       pending_duplicate_merger_button: Ouvrir la fusion
       pending_duplicate_merger_description: Fusionnez manuellement cette transaction en attente avec sa version validée.
       pending_duplicate_merger_title: Doublon d'une transaction validée ?
       potential_duplicate_description: Cette transaction en attente peut être la même que la transaction validée ci-dessous. Si tel est le cas, fusionnez-les pour éviter un double comptage.
       potential_duplicate_title: Doublon possible détecté
-      provider_extras: Suppléments du fournisseur
       settings: Paramètres
       tab_transactions: Transactions
       tab_upcoming: À venir
-      tags_label: Étiquettes
       transfer: Transfert
       transfer_matcher_description: Connectez cette transaction à sa contrepartie dans un autre compte.
       transfer_or_debt_payment: Transfert ou paiement de la dette ?
@@ -357,6 +350,5 @@ fr:
       payment_confirmed: Le paiement est confirmé
       reject_match: Rejeter la correspondance
       transfer_confirmed: Le transfert est confirmé
-    unknown_name: Transaction inconnue
     update:
       updated: Transaction mise à jour

@@ -221,6 +221,3 @@ zh-CN:
         auto_sync_description: 按计划自动同步已连接账户。
         auto_sync_time_label: 同步时间（HH:MM）
         auto_sync_time_description: 每天触发自动同步的时间。
-        include_pending_label: 包含待处理交易
-        include_pending_description: 同步时同时拉取提供商返回的待处理交易。
-        env_configured_message: 已通过环境变量配置同步设置。

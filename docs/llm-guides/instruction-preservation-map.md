@@ -70,7 +70,7 @@ claims that any contributor's ignored files exist or contain shared policy.
 | Functional tokens, DS-first, repeated-shape extraction and reviewer severity | `AGENTS.md`, `design-system.md` | Preserve every requirement and escalation level. |
 | Permission for new global styles, semantic HTML, Turbo/query state, ViewComponent vs partial, declarative Stimulus, <7-target aim, localization/accessibility | `ui.md` | Preserve; replace obsolete examples and hardcoded UI text. |
 | API behavioral coverage, errors/scopes, docs-only rswag, API-key pattern, regeneration after changes and checklist after commits | `api-endpoint-consistency.md` | Preserve; remove already-resolved OAuth TODO only. Runtime OAuth support remains. |
-| Provider diagnostics, namespaced extras, pending/FX, defaults/precedence, raw payload privacy | `providers.md` | Preserve obligations and Up local-only privacy restriction; correct descriptions of current behavior. |
+| Provider diagnostics | `providers.md` | Preserve the diagnostics obligation; account aggregation providers were removed from this fork. |
 
 ## Intentional policy decisions
 
@@ -168,8 +168,6 @@ as main policy; the wealth-named guides entered main directly in [efb7cc393](htt
 | User-owned accounts; all values stored in a user's base currency | [Account](../../app/models/account.rb) belongs to `Family`; both accounts and [entries](../../app/models/entry.rb) require their own currency. |
 | Nested provider concepts and old balance-calculator paths | [Provider registry](../../app/models/provider/registry.rb), [exchange-rate concept](../../app/models/provider/exchange_rate_concept.rb), [security concept](../../app/models/provider/security_concept.rb), and [account syncer](../../app/models/account/syncer.rb) show the current classes and `Balance::Materializer` flow. |
 | Lookbook at `/lookbook`; API keys described as JWT tokens | [Routes](../../config/routes.rb) mount Lookbook at `/design-system`; [ApiKey](../../app/models/api_key.rb) generates random hexadecimal keys. |
-| SimpleFIN infers pending from a blank posted date | [SimplefinEntry::Processor.pending?](../../app/models/simplefin_entry/processor.rb) requires explicit epoch zero plus a positive transaction timestamp when no explicit pending flag is set. |
-| Blanket pending defaults; Lunchflow does not store pending metadata | Initializers for [SimpleFIN](../../config/initializers/simplefin.rb), [Plaid](../../config/initializers/plaid_config.rb), and [Lunchflow](../../config/initializers/lunchflow.rb), the [SimpleFIN importer](../../app/models/simplefin_item/importer.rb), and [Lunchflow processor](../../app/models/lunchflow_entry/processor.rb) distinguish provider defaults, import-layer overrides and stored metadata. |
 | Valuations rswag spec still needs OAuth replaced | [valuations_spec.rb](../../spec/requests/api/v1/valuations_spec.rb) already creates an API key and supplies `X-Api-Key`. |
 | New migrations must remain Rails 7.2 | [Gemfile](../../Gemfile) requires Rails 8.1; upgrade commit [88343002d](https://github.com/we-promise/sure/commit/88343002d) provides the historical transition. |
 

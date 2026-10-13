@@ -192,6 +192,3 @@ hu:
         auto_sync_description: Ha engedélyezve van, az összes fiók naponta automatikusan szinkronizálódik a megadott időpontban.
         auto_sync_time_label: Szinkronizálási idő (ÓÓ:PP)
         auto_sync_time_description: Add meg a nap azon időpontját, amikor az automatikus szinkronizálásnak meg kell történnie.
-        include_pending_label: Függőben lévő tranzakciók belefoglalása
-        include_pending_description: Ha engedélyezve van, a függőben lévő (nem teljesített) tranzakciók importálódnak, és automatikusan egyeztetődnek, amikor könyvelődnek. Tiltsd le, ha a bankod megbízhatatlan függőben lévő adatokat szolgáltat.
-        env_configured_message: Ez a beállítás le van tiltva, mert be van állítva egy szolgáltatói környezeti változó (SIMPLEFIN_INCLUDE_PENDING vagy PLAID_INCLUDE_PENDING). Távolítsd el ezt a beállítás engedélyezéséhez.

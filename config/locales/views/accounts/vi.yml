@@ -9,10 +9,6 @@ vi:
     account:
       complete_setup: Hoàn thành thiết lập
       edit: Chỉnh sửa
-      link_lunchflow: Liên kết với Lunch Flow
-      link_provider: Liên kết với nhà cung cấp
-      unlink_provider: Hủy liên kết với nhà cung cấp
-      change_simplefin_account: Thay đổi tài khoản SimpleFIN
       troubleshoot: Khắc phục sự cố
       enable: Bật tài khoản
       disable: Tắt tài khoản
@@ -29,7 +25,6 @@ vi:
       depository_only: "Chỉ tài khoản tiền mặt và thẻ tín dụng mới có thể đặt làm mặc định."
     destroy:
       success: "Tài khoản %{type} đã được lên lịch xóa"
-      cannot_delete_linked: "Không thể xóa tài khoản đã liên kết. Vui lòng hủy liên kết trước."
       failed: "Xóa tài nguyên thất bại. Vui lòng thử lại sau."
     empty:
       empty_message: Thêm tài khoản qua kết nối, nhập dữ liệu hoặc nhập thủ công.
@@ -64,10 +59,6 @@ vi:
       method_selector:
         connected_entry: Liên kết tài khoản
         connected_entry_eu: Liên kết tài khoản EU
-        link_with_provider: "Liên kết với %{provider}"
-        lunchflow_entry: Liên kết tài khoản Lunch Flow
-        manual_entry: Nhập số dư tài khoản
-        title: Bạn muốn thêm bằng cách nào?
       title: Bạn muốn thêm gì?
     show:
       limited_fx_history_warning: "Lịch sử tỷ giá hối đoái chỉ khả dụng từ %{date} trở đi. Các giao dịch trước ngày này sử dụng chuyển đổi tiền tệ xấp xỉ."
@@ -166,26 +157,6 @@ vi:
       eu: Châu Âu
       in: Ấn Độ
       generic: Chung
-    confirm_unlink:
-      title: Hủy liên kết tài khoản với nhà cung cấp?
-      description_html: "Bạn đang hủy liên kết <strong>%{account_name}</strong> khỏi <strong>%{provider_name}</strong>. Tài khoản này sẽ được chuyển thành tài khoản thủ công."
-      warning_title: Điều này có nghĩa là gì
-      warning_no_sync: Tài khoản sẽ không còn tự động đồng bộ với nhà cung cấp
-      warning_manual_updates: Bạn cần thêm giao dịch và cập nhật số dư thủ công
-      warning_transactions_kept: Tất cả giao dịch và số dư hiện có sẽ được giữ nguyên
-      warning_can_delete: Sau khi hủy liên kết, bạn có thể xóa tài khoản nếu cần
-      confirm_button: Xác nhận và hủy liên kết
-    unlink:
-      success: "Tài khoản đã được hủy liên kết thành công. Bây giờ là tài khoản thủ công."
-      not_linked: "Tài khoản chưa được liên kết với nhà cung cấp"
-      error: "Hủy liên kết tài khoản thất bại: %{error}"
-      generic_error: "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
-    select_provider:
-      title: Chọn nhà cung cấp để liên kết
-      description: "Chọn nhà cung cấp bạn muốn dùng để liên kết %{account_name}"
-      already_linked: "Tài khoản đã được liên kết với nhà cung cấp"
-      no_providers: "Hiện không có nhà cung cấp nào được cấu hình"
-
   email_confirmations:
     new:
       invalid_token: Liên kết xác nhận không hợp lệ hoặc đã hết hạn.

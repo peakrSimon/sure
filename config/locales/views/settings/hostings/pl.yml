@@ -275,28 +275,6 @@ pl:
         title: Wybór dostawcy
         twelve_data_hint: wymaga klucza API, 800 jednostek dziennie
         yahoo_finance_hint: za darmo, bez klucza API
-      realie_settings:
-        description: Wprowadź klucz API Realie, aby przy dodawaniu nieruchomości pobierać
-          szczegóły i szacunkową wartość nieruchomości w USA. Darmowy plan jest ograniczony
-          do 25 zapytań API miesięcznie, wspólnych dla wyszukiwania nieruchomości
-          i codziennego odświeżania wyceny. W płatnym planie zwiększ limit zmienną
-          środowiskową REALIE_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Skonfigurowano przez zmienną środowiskową REALIE_API_KEY.
-        label: Klucz API
-        placeholder: Wprowadź tutaj swój klucz API Realie
-        title: Realie
-        usage: Wykorzystano %{used} z %{limit} miesięcznych zapytań
-      rentcast_settings:
-        description: Wprowadź klucz API RentCast, aby przy dodawaniu nieruchomości
-          pobierać szczegóły i szacunkową wartość nieruchomości w USA. Darmowy plan
-          jest ograniczony do 50 zapytań API miesięcznie, wspólnych dla wyszukiwania
-          nieruchomości i codziennego odświeżania wyceny. W płatnym planie zwiększ
-          limit zmienną środowiskową RENTCAST_MAX_REQUESTS_PER_MONTH.
-        env_configured_message: Skonfigurowano przez zmienną środowiskową RENTCAST_API_KEY.
-        label: Klucz API
-        placeholder: Wprowadź tutaj swój klucz API RentCast
-        title: RentCast
-        usage: Wykorzystano %{used} z %{limit} miesięcznych zapytań
       show:
         ai_assistant: Asystent AI
         clear_cache: Wyczyść pamięć podręczną danych
@@ -312,7 +290,6 @@ pl:
         financial_data_providers: Dostawcy danych finansowych
         general: Ustawienia ogólne
         invites: Kody zaproszeń
-        property_valuation_providers: Dostawcy wyceny nieruchomości
         sync_settings: Ustawienia synchronizacji
         title: Self-Hosting
       sync_auto_sync_scheduler!:
@@ -325,13 +302,6 @@ pl:
         auto_sync_time_description: Określ godzinę dnia, o której ma odbywać się automatyczna
           synchronizacja.
         auto_sync_time_label: Czas synchronizacji (HH:MM)
-        env_configured_message: To ustawienie jest wyłączone, ponieważ ustawiono zmienną
-          środowiskową dostawcy (SIMPLEFIN_INCLUDE_PENDING lub PLAID_INCLUDE_PENDING).
-          Usuń ją, aby włączyć to ustawienie.
-        include_pending_description: Gdy włączone, transakcje oczekujące (niezaksięgowane)
-          będą importowane i automatycznie uzgadniane po zaksięgowaniu. Wyłącz, jeśli
-          Twój bank dostarcza niewiarygodne dane oczekujące.
-        include_pending_label: Uwzględniaj transakcje oczekujące
       tiingo_settings:
         description: Wprowadź token API otrzymany od Tiingo. Darmowy plan obsługuje
           50 unikalnych symboli na godzinę i ponad 30 lat danych historycznych.

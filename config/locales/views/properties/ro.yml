@@ -24,9 +24,5 @@ ro:
     new:
       title: Introdu detalii proprietate
     overview:
-      living_area: Suprafață locuibilă
-      market_value: Valoare de piață
       purchase_price: Preț de achiziție
       trend: Tendință
-      unknown: Necunoscut
-      year_built: Anul construcției

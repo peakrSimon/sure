@@ -22,22 +22,9 @@ pt-PT:
       subtype_prompt: Selecione o tipo de imóvel
       year_built: Ano de construção
       year_built_placeholder: '2000'
-    avm_providers:
-      rentcast: RentCast
-      realie: Realie
     new:
       title: Introduzir imóvel manualmente
       next: "Seguinte"
-      avm_option: "Adicionar via %{provider}"
-      avm_title: "Adicionar imóvel via %{provider}"
-      avm_description: "Introduza um nome para o imóvel e a sua morada. O %{provider} irá procurar os detalhes do imóvel e o valor de mercado estimado por si."
-      avm_us_only: "O %{provider} só suporta imóveis localizados nos Estados Unidos."
-      avm_submit: "Procurar imóvel"
-      avm_preview_title: "Confirmar detalhes do imóvel"
-      avm_preview_description: "Isto é o que o %{provider} encontrou. Reveja os detalhes antes de adicionar o imóvel — ainda não foi criado nada."
-      avm_preview_no_record: "O %{provider} não conseguiu encontrar um registo do imóvel nesta morada, pelo que o valor apresentado é uma estimativa baseada na área circundante. Verifique novamente a morada antes de continuar."
-      avm_preview_back: "Voltar"
-      avm_preview_confirm: "Adicionar imóvel"
     address:
       title: "Introduzir imóvel manualmente"
       address_line1_label: "Linha de morada 1"
@@ -70,12 +57,8 @@ pt-PT:
       square_meters: "Metros quadrados"
       area_unit_label: "Unidade de área"
     overview:
-      living_area: Área útil
-      market_value: Valor de mercado
       purchase_price: Preço de compra
       trend: Tendência
-      unknown: Desconhecido
-      year_built: Ano de construção
     tabs:
       overview:
         living_area: Área útil

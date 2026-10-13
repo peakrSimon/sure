@@ -36,7 +36,7 @@
     <% end %>
   <% end %>
 
-  <% if account.owned_by?(Current.user) && !account.linked? %>
+  <% if account.owned_by?(Current.user) %>
     <% menu.with_item(
       variant: "button",
       text: t(".delete_account"),

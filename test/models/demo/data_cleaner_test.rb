@@ -4,7 +4,6 @@ class Demo::DataCleanerTest < ActiveSupport::TestCase
   setup do
     # Fixture families hold Plaid items, and destroying one asks Plaid to
     # remove it. That call is not what these tests are about.
-    Provider::Registry.stubs(:plaid_provider_for_region).returns(nil)
   end
 
   # The generator gives its demo family a fake Stripe subscription, and a

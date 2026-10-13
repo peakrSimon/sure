@@ -25,24 +25,6 @@ class Transfer::InvestmentKindReconcilerTest < ActiveSupport::TestCase
     assert_equal "investment_contribution", transfer.outflow_transaction.reload.kind
   end
 
-  test "repairs a legacy pair imported without a kind hint" do
-    inflow = Account::ProviderImportAdapter.new(accounts(:investment)).import_transaction(
-      external_id: "plaid_no_hint_in", amount: -80, currency: "USD", date: Date.current,
-      name: "Deposit", source: "plaid"
-    )
-    outflow = Account::ProviderImportAdapter.new(accounts(:crypto)).import_transaction(
-      external_id: "plaid_no_hint_out", amount: 80, currency: "USD", date: Date.current,
-      name: "Withdrawal to brokerage", source: "plaid"
-    )
-    transfer = Transfer.create!(inflow_transaction: inflow.transaction, outflow_transaction: outflow.transaction, status: "confirmed")
-    # State left by the old classification of investment-to-investment transfers.
-    transfer.outflow_transaction.update_columns(kind: "investment_contribution")
-
-    Transfer::InvestmentKindReconciler.new.run
-
-    assert_equal "funds_movement", outflow.transaction.reload.kind
-  end
-
   test "keeps kinds the user chose, excluded entries and locked kinds" do
     one_time = create_transfer(from: accounts(:crypto), to: accounts(:investment), outflow_kind: "one_time")
     excluded = create_transfer(from: accounts(:crypto), to: accounts(:investment), outflow_kind: "investment_contribution")

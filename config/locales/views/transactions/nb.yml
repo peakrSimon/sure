@@ -25,7 +25,6 @@ nb:
     show:
       account_label: Konto
       amount: Beløp
-      category_label: Kategori
       date_label: Dato
       delete: Slett
       delete_subtitle: Dette sletter transaksjonen permanent, påvirker dine historiske
@@ -40,7 +39,6 @@ nb:
       note_placeholder: Skriv et notat
       overview: Oversikt
       settings: Innstillinger
-      tags_label: Tagger
       uncategorized: "(ukategorisert)"
     header:
       edit_categories: Rediger kategorier

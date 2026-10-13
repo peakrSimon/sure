@@ -194,8 +194,8 @@ module Family::AutoTransferMatchable
     # match -- and a manual account has no institution behind it confirming money actually
     # moved, so an unrelated pair of round-number transactions can land inside the tolerance
     # band purely by chance. When :restrict_cross_currency_to_linked_accounts is true, that
-    # branch additionally requires both accounts to have a live provider connection
-    # (Plaid/SimpleFIN/account_providers). Manual accounts always participate in the first
+    # branch additionally requires both accounts to have a live provider connection,
+    # which no account has any more. Manual accounts always participate in the first
     # branch's exact-amount, same-currency matching, which carries no such ambiguity.
     #
     # The restriction is opt-in (default false) rather than baked into the branch
@@ -337,17 +337,9 @@ module Family::AutoTransferMatchable
       SQL
     end
 
-    # The inverse of Account#manual? / the Account.manual scope, inlined as SQL so
-    # it can run against the inflow/outflow account aliases in the same query
-    # rather than round-tripping through AR. Keep in sync with Account#manual? if
-    # what counts as "linked" ever changes (e.g. a new provider type).
-    def linked_account_sql(accounts_alias)
-      <<~SQL.squish
-        (
-          #{accounts_alias}.plaid_account_id IS NOT NULL OR
-          #{accounts_alias}.simplefin_account_id IS NOT NULL OR
-          EXISTS (SELECT 1 FROM account_providers WHERE account_providers.account_id = #{accounts_alias}.id)
-        )
-      SQL
+    # Every account is manual now, so no account counts as provider-linked and
+    # the restricted cross-currency branch never auto-matches.
+    def linked_account_sql(_accounts_alias)
+      "FALSE"
     end
 end

@@ -56,12 +56,8 @@ vi:
       square_meters: "Mét vuông"
       area_unit_label: "Đơn vị diện tích"
     overview:
-      living_area: Diện tích sử dụng
-      market_value: Giá trị thị trường
       purchase_price: Giá mua
       trend: Xu hướng
-      unknown: Không xác định
-      year_built: Năm xây dựng
     tabs:
       overview:
         living_area: Diện tích sử dụng

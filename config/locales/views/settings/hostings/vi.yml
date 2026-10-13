@@ -191,6 +191,3 @@ vi:
         auto_sync_description: Khi bật, tất cả tài khoản sẽ được tự động đồng bộ hàng ngày vào thời gian đã chỉ định.
         auto_sync_time_label: Thời gian đồng bộ (HH:MM)
         auto_sync_time_description: Chỉ định thời điểm trong ngày khi đồng bộ tự động sẽ xảy ra.
-        include_pending_label: Bao gồm giao dịch đang chờ
-        include_pending_description: Khi bật, các giao dịch đang chờ (chưa được ghi nhận) sẽ được nhập và tự động đối soát khi được đăng. Tắt nếu ngân hàng của bạn cung cấp dữ liệu đang chờ không đáng tin cậy.
-        env_configured_message: Cài đặt này bị tắt vì biến môi trường nhà cung cấp (SIMPLEFIN_INCLUDE_PENDING hoặc PLAID_INCLUDE_PENDING) đã được đặt. Xóa nó để bật cài đặt này.

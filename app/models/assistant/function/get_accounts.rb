@@ -71,7 +71,7 @@ class Assistant::Function::GetAccounts < Assistant::Function
     # No balances preload: the series goes through Balance::ChartSeriesBuilder,
     # which runs its own query keyed by account ids.
     def accounts_scope(_include_series)
-      user.accessible_accounts.visible.includes(:account_providers)
+      user.accessible_accounts.visible
     end
 
     def historical_balances(account, period)

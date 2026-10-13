@@ -125,7 +125,6 @@ ro:
       transactions_section_title: Tranzacții
       whats_new_label: Noutăți
       api_keys_label: Cheie API
-      bank_sync_label: Sincronizare bancară
     settings_nav_link_large:
       next: Următorul
       previous: Înapoi

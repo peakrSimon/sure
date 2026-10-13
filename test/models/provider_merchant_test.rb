@@ -5,7 +5,7 @@ class ProviderMerchantTest < ActiveSupport::TestCase
 
   setup do
     @family = families(:dylan_family)
-    @provider_merchant = ProviderMerchant.create!(name: "Acme Synced", source: "plaid")
+    @provider_merchant = ProviderMerchant.create!(name: "Acme Synced", source: "synth")
   end
 
   # Regression: issue #1977. Converting a synced merchant to a family merchant
@@ -36,18 +36,18 @@ class ProviderMerchantTest < ActiveSupport::TestCase
   end
 
   test "find_by_import_data prefers provider_merchant_id over name, scoped to source" do
-    by_id = ProviderMerchant.create!(name: "Renamed Upstream", source: "plaid", provider_merchant_id: "plaid_acme")
-    ProviderMerchant.create!(name: "Acme", source: "lunchflow")
+    by_id = ProviderMerchant.create!(name: "Renamed Upstream", source: "synth", provider_merchant_id: "plaid_acme")
+    ProviderMerchant.create!(name: "Acme", source: "ai")
 
-    found = ProviderMerchant.find_by_import_data({ "name" => "Old Name", "provider_merchant_id" => "plaid_acme" }, "plaid")
+    found = ProviderMerchant.find_by_import_data({ "name" => "Old Name", "provider_merchant_id" => "plaid_acme" }, "synth")
 
     assert_equal by_id, found
-    assert_equal @provider_merchant, ProviderMerchant.find_by_import_data({ "name" => "Acme Synced" }, "plaid")
-    assert_nil ProviderMerchant.find_by_import_data({ "name" => "Acme Synced" }, "lunchflow")
+    assert_equal @provider_merchant, ProviderMerchant.find_by_import_data({ "name" => "Acme Synced" }, "synth")
+    assert_nil ProviderMerchant.find_by_import_data({ "name" => "Acme Synced" }, "ai")
   end
 
   test "import_diff reports only non-blank website_url and name differences" do
-    merchant = ProviderMerchant.create!(name: "Acme", source: "plaid", provider_merchant_id: "plaid_acme", website_url: "https://acme.com")
+    merchant = ProviderMerchant.create!(name: "Acme", source: "synth", provider_merchant_id: "plaid_acme", website_url: "https://acme.com")
 
     assert_empty merchant.import_diff({ "name" => "Acme", "website_url" => "https://acme.com", "color" => "#123456" })
     assert_empty merchant.import_diff({ "name" => "Acme", "website_url" => "" })
@@ -60,8 +60,8 @@ class ProviderMerchantTest < ActiveSupport::TestCase
   end
 
   test "import_diff flags a non-blank provider_merchant_id that differs from, or is missing on, the existing merchant" do
-    with_id = ProviderMerchant.create!(name: "Acme", source: "lunchflow", provider_merchant_id: "id-1")
-    without_id = ProviderMerchant.create!(name: "Acme", source: "akahu")
+    with_id = ProviderMerchant.create!(name: "Acme", source: "ai", provider_merchant_id: "id-1")
+    without_id = ProviderMerchant.create!(name: "Acme", source: "synth")
 
     assert_equal(
       [ { field: "provider_merchant_id", imported_value: "id-2", kept_value: "id-1" } ],
@@ -76,16 +76,16 @@ class ProviderMerchantTest < ActiveSupport::TestCase
   end
 
   test "does not support color: writes are discarded and the stored value is NULL" do
-    assert_nil ProviderMerchant.new(name: "New", source: "plaid", color: "#123456").color
+    assert_nil ProviderMerchant.new(name: "New", source: "synth", color: "#123456").color
 
-    created = ProviderMerchant.create!(name: "Colored", source: "plaid", color: "#123456")
+    created = ProviderMerchant.create!(name: "Colored", source: "synth", color: "#123456")
 
     assert_nil created.color
     assert_nil ProviderMerchant.where(id: created.id).pick(:color)
   end
 
   test "does not support color: a stale value on an old row is never read and is cleared on the next save" do
-    legacy = ProviderMerchant.create!(name: "Legacy", source: "plaid")
+    legacy = ProviderMerchant.create!(name: "Legacy", source: "synth")
     legacy.update_column(:color, "#654321")
 
     assert_nil ProviderMerchant.find(legacy.id).color, "a stale value must not reach a view"

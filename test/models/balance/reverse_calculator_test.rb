@@ -389,7 +389,6 @@ class Balance::ReverseCalculatorTest < ActiveSupport::TestCase
     )
   end
 
-
   # Investment account balances are made of two components: cash and holdings.
   test "anchors on investment accounts calculate cash balance dynamically based on holdings value" do
     account = create_account_with_ledger(
